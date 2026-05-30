@@ -13,7 +13,9 @@ import {
   ShieldCheck, 
   Users, 
   CheckCircle2, 
-  Rocket 
+  Rocket,
+  Phone,
+  Mail
 } from 'lucide-react';
 import Testimonials from '@/components/Testimonials';
 import FaqSection from '@/components/FaqSection';
@@ -231,23 +233,83 @@ export default function HomePage() {
       {/* FAQ */}
       <FaqSection />
 
-      {/* Final Call to Action */}
-      <section className="py-20 bg-background relative border-t border-border">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center space-y-8 relative">
+      {/* Professional Trust Section */}
+      <section className="py-16 bg-card/25 border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              Why Businesses <span className="text-emerald-500">Trust Aswal Web Studio</span>
+            </h2>
+            <p className="text-sm text-foreground/70 max-w-xl mx-auto">
+              We combine design excellence with robust engineering to deliver clean, scalable solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+            {[
+              { label: 'Fast Delivery', desc: 'Projects in 3-10 days' },
+              { label: 'Affordable Pricing', desc: 'Starting at just ₹3,000' },
+              { label: 'Mobile Responsive', desc: 'Perfect responsive view' },
+              { label: 'SEO Optimized', desc: 'Built for high rankings' },
+              { label: 'Premium Support', desc: 'Dedicated dev warranty' },
+              { label: 'Custom Development', desc: 'No templates or bloat' },
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="p-5 bg-card border border-card-border rounded-2xl shadow-sm text-center flex flex-col items-center justify-between space-y-3 hover:border-emerald-500/30 transition-all group"
+              >
+                <div className="h-8 w-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+                  <CheckCircle2 className="h-5 w-5" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-xs sm:text-sm font-bold text-foreground leading-tight">{item.label}</p>
+                  <p className="text-[10px] text-foreground/50">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lead Conversion Section */}
+      <section className="py-24 bg-background relative border-t border-border overflow-hidden">
+        {/* Glow lights */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-            Let’s Build Something <span className="text-gradient">Extraordinary</span>
+            Ready to Build <span className="text-gradient">Your Website?</span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Ready to design a premium, custom website that represents your business at its absolute best? Request a complete project estimate now.
+          <p className="text-lg text-foreground/75 max-w-xl mx-auto leading-relaxed">
+            Get a professional website tailored to your business starting at just ₹3,000. Contact Aswal Web Studio today for a clean, premium proposal.
           </p>
-          <div className="pt-4">
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            {/* Call Now */}
+            <a
+              href="tel:+917304610459"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-all shadow-md hover:-translate-y-0.5 cursor-pointer"
+            >
+              <Phone className="mr-2 h-4 w-4" />
+              Call Now
+            </a>
+            
+            {/* Send Email */}
+            <a
+              href="mailto:aman9lion@gmail.com"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all shadow-md hover:-translate-y-0.5 cursor-pointer"
+            >
+              <Mail className="mr-2 h-4 w-4" />
+              Send Email
+            </a>
+
+            {/* Request Website */}
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-2xl transition-all shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/35 hover:-translate-y-0.5 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl transition-all shadow-md hover:-translate-y-0.5 group cursor-pointer"
             >
-              Get My Free Proposal
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              Request Website
+              <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
         </div>

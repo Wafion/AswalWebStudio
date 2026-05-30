@@ -552,18 +552,108 @@ export default function ContactPage() {
             Let’s Initiate Your <span className="text-emerald-500">Project Proposal</span>
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Fill out the form below to share your requirements. We will compile a custom feature proposal and pricing review.
+            Fill out the form below to share your requirements, or reach out to us directly via phone, email, or Instagram.
           </p>
         </div>
 
-        {/* Form component within Suspense boundary because it uses useSearchParams */}
-        <Suspense fallback={
-          <div className="p-10 border border-border rounded-3xl bg-card max-w-4xl mx-auto text-center font-medium">
-            Loading project configurator...
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
+          
+          {/* Left Column: Contact details (4 cols) */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-card border border-card-border p-6 sm:p-8 rounded-3xl shadow-xl space-y-8 relative overflow-hidden">
+              {/* Decorative Blur */}
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
+              
+              <div className="space-y-2">
+                <h3 className="font-extrabold text-2xl text-foreground">Get In Touch</h3>
+                <p className="text-xs text-foreground/60 leading-relaxed">
+                  Have questions about custom projects, features, or timelines? Reach out to our team directly.
+                </p>
+              </div>
+              
+              <div className="space-y-4">
+                
+                {/* Phone Card */}
+                <a 
+                  href="tel:+917304610459"
+                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-emerald-500/5 border border-border hover:border-emerald-500/30 rounded-2xl transition-all group cursor-pointer"
+                >
+                  <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[10px] font-bold text-foreground/45 uppercase tracking-wider">Call Directly</p>
+                    <p className="text-xs sm:text-sm font-bold text-foreground truncate mt-0.5">+91 7304610459</p>
+                  </div>
+                </a>
+
+                {/* Email Card */}
+                <a 
+                  href="mailto:aman9lion@gmail.com"
+                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-emerald-500/5 border border-border hover:border-emerald-500/30 rounded-2xl transition-all group cursor-pointer"
+                >
+                  <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[10px] font-bold text-foreground/45 uppercase tracking-wider">Send Email</p>
+                    <p className="text-xs sm:text-sm font-bold text-foreground truncate mt-0.5">aman9lion@gmail.com</p>
+                  </div>
+                </a>
+
+                {/* Instagram Card */}
+                <a 
+                  href="https://www.instagram.com/aswalwebstudio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-emerald-500/5 border border-border hover:border-emerald-500/30 rounded-2xl transition-all group cursor-pointer"
+                >
+                  <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                    </svg>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[10px] font-bold text-foreground/45 uppercase tracking-wider">Follow Instagram</p>
+                    <p className="text-xs sm:text-sm font-bold text-foreground truncate mt-0.5">@aswalwebstudio</p>
+                  </div>
+                </a>
+
+              </div>
+
+              {/* Quick WhatsApp Support */}
+              <div className="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl space-y-2">
+                <span className="font-bold text-emerald-500 text-[10px] uppercase tracking-wider">Instant Chat Support:</span>
+                <p className="text-[11px] text-foreground/75 leading-relaxed">
+                  Connect on WhatsApp for immediate feedback on design scopes and timelines.
+                </p>
+                <a
+                  href="https://wa.me/917304610459?text=Hi!%20I'm%20interested%20in%20a%20website%20quote%20from%20Aswal%20Web%20Studio."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition-all shadow-md shadow-emerald-600/10 mt-1 cursor-pointer"
+                >
+                  Message on WhatsApp
+                </a>
+              </div>
+
+            </div>
           </div>
-        }>
-          <RequestForm />
-        </Suspense>
+
+          {/* Right Column: Form (8 cols) */}
+          <div className="lg:col-span-8 w-full">
+            <Suspense fallback={
+              <div className="p-10 border border-border rounded-3xl bg-card text-center font-medium">
+                Loading project configurator...
+              </div>
+            }>
+              <RequestForm />
+            </Suspense>
+          </div>
+
+        </div>
 
       </div>
     </div>

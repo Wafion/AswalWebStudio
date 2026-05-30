@@ -43,18 +43,38 @@ export async function POST(req: NextRequest) {
       files: files || [],
     });
 
-    // Simulate sending Confirmation Email
-    console.log(`[EMAIL SENDING] Sending confirmation to ${email}...`);
+    // Simulate sending Confirmation Email to Customer
+    console.log(`[EMAIL SENDING] Sending confirmation to customer: ${email}...`);
     console.log(`
-      Subject: AswalWebStudio - Proposal Request Confirmed
+      Subject: Aswal Web Studio - Proposal Request Confirmed
       Body: Hi ${name},
-      Thank you for contacting AswalWebStudio. We have successfully registered your website request for a "${websiteType}".
+      Thank you for contacting Aswal Web Studio. We have successfully registered your website request for a "${websiteType}".
       Our project strategist will review your requirements:
       - Budget: ${budgetRange || 'Unspecified'}
       - Deadline: ${deadline || 'Standard'}
       We will contact you shortly.
       Best regards,
-      The AswalWebStudio Team
+      The Aswal Web Studio Team
+    `);
+
+    // Simulate sending Lead Notification to Admin Email (aman9lion@gmail.com)
+    console.log(`[EMAIL SENDING] Sending lead details to admin: aman9lion@gmail.com...`);
+    console.log(`
+      Subject: [NEW LEAD ALERT] Aswal Web Studio - Lead from ${name}
+      Body: A new website proposal request has been submitted.
+      Details:
+      - Client Name: ${name}
+      - Client Email: ${email}
+      - Client Phone: ${phone || 'N/A'}
+      - Company: ${companyName || 'N/A'}
+      - Project Type: ${websiteType}
+      - Target Pages: ${pageCount || 'N/A'}
+      - Style Preference: ${designStyle || 'N/A'}
+      - Budget: ${budgetRange || 'Open'}
+      - Deadline: ${deadline || 'Standard'}
+      - Features Requested: ${(features || []).join(', ') || 'None'}
+      - Brief Description: ${description || 'No description provided'}
+      - Attachments: ${(files || []).map((f: any) => f.name).join(', ') || 'None'}
     `);
 
     // Simulate Admin Notification
