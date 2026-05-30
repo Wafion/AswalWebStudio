@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme inline {
+@theme {
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+
+  /* Custom Agency Brand Colors */
+  --color-navy-50: #f4f6fb;
+  --color-navy-100: #e8ecf6;
+  --color-navy-200: #cad7ec;
+  --color-navy-300: #9cb4de;
+  --color-navy-400: #688bcb;
+  --color-navy-500: #4667b3;
+  --color-navy-600: #364f94;
+  --color-navy-700: #2c3f78;
+  --color-navy-800: #1b2649;
+  --color-navy-900: #17203b;
+  --color-navy-950: #0a0f1d;
+
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-400: #34d399;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-border: var(--border-color);
+  --color-card: var(--card-bg);
+  --color-card-border: var(--card-border);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: light-dark(#ffffff, #090e1a);
+  --foreground: light-dark(#0f172a, #f8fafc);
+  --border-color: light-dark(#e2e8f0, #1e293b);
+  --card-bg: light-dark(#f8fafc, #0e1726);
+  --card-border: light-dark(#e2e8f0, #1b2536);
+  --accent-color: light-dark(#059669, #10b981);
+
+  color-scheme: light dark;
+
+  /* Configure custom scrollbar */
+  scrollbar-color: light-dark(#cbd5e1, #1e293b) transparent;
+  scrollbar-width: thin;
+}
+
+/* Ensure focus management and outlines */
+*:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  accent-color: var(--accent-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Headings balanced text wrapping */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+p {
+  text-wrap: pretty;
+  line-height: 1.625;
+}
+
+/* Modern Gradient Text Helper */
+.text-gradient {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: light-dark(rgba(255, 255, 255, 0.7), rgba(15, 23, 42, 0.65));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid light-dark(rgba(226, 232, 240, 0.8), rgba(30, 41, 59, 0.5));
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: light-dark(rgba(255, 255, 255, 0.85), rgba(15, 23, 42, 0.8));
+  border-color: light-dark(rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.4));
+  box-shadow: 0 10px 30px -10px light-dark(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.3));
+}
+
+/* Fade reveals custom animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

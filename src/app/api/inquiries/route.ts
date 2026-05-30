@@ -1,0 +1,74 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { db } from '@/lib/db';
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const { 
+      name, 
+      email, 
+      phone, 
+      companyName, 
+      websiteType, 
+      pageCount, 
+      designStyle, 
+      budgetRange, 
+      deadline, 
+      features, 
+      description,
+      files 
+    } = body;
+
+    // Validation
+    if (!name || !email || !websiteType) {
+      return NextResponse.json(
+        { error: 'Name, Email, and Website Type are required fields.' },
+        { status: 400 }
+      );
+    }
+
+    // Save inquiry to database (falls back to local JSON db file)
+    const newInquiry = await db.createInquiry({
+      name,
+      email,
+      phone: phone || '',
+      companyName: companyName || '',
+      websiteType,
+      pageCount: pageCount || '',
+      designStyle: designStyle || '',
+      budgetRange: budgetRange || '',
+      deadline: deadline || '',
+      features: features || [],
+      description: description || '',
+      files: files || [],
+    });
+
+    // Simulate sending Confirmation Email
+    console.log(`[EMAIL SENDING] Sending confirmation to ${email}...`);
+    console.log(`
+      Subject: AswalWebStudio - Proposal Request Confirmed
+      Body: Hi ${name},
+      Thank you for contacting AswalWebStudio. We have successfully registered your website request for a "${websiteType}".
+      Our project strategist will review your requirements:
+      - Budget: ${budgetRange || 'Unspecified'}
+      - Deadline: ${deadline || 'Standard'}
+      We will contact you shortly.
+      Best regards,
+      The AswalWebStudio Team
+    `);
+
+    // Simulate Admin Notification
+    console.log(`[ADMIN NOTIFICATION] New Lead Captured: "${name}" requested a "${websiteType}" (Budget: ${budgetRange || 'N/A'})`);
+
+    return NextResponse.json(
+      { message: 'Inquiry saved successfully', inquiry: newInquiry },
+      { status: 201 }
+    );
+  } catch (err: any) {
+    console.error('API Error in /api/inquiries:', err);
+    return NextResponse.json(
+      { error: 'Internal Server Error', details: err?.message },
+      { status: 500 }
+    );
+  }
+}
