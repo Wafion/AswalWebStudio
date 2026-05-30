@@ -1,4 +1,4 @@
--- HBAS Web Studio PostgreSQL / Supabase Schema
+-- AswalWebStudio PostgreSQL / Supabase Schema
 
 -- Table for project inquiries (leads)
 CREATE TABLE IF NOT EXISTS inquiries (
@@ -36,5 +36,5 @@ CREATE TABLE IF NOT EXISTS users (
 -- Insert default admin user seed script
 -- (Password should be hashed using bcrypt in production, default: admin123)
 -- INSERT INTO users (email, password_hash, name, role) 
--- VALUES ('admin@hbasweb.studio', '$2b$12$L7R2Qo56f/E8n/sNnZ7hOuhM0v5P27m0/t2Yc/2b7G3cWn56dG39S', 'HBAS Admin', 'admin')
+-- VALUES ('admin@aswalwebstudio.com', '$2b$12$L7R2Qo56f/E8n/sNnZ7hOuhM0v5P27m0/t2Yc/2b7G3cWn56dG39S', 'AswalWebStudio Admin', 'admin')
 -- ON CONFLICT (email) DO NOTHING;

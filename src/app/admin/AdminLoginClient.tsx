@@ -38,7 +38,7 @@ export default function AdminLoginClient() {
   };
 
   return (
-    <div className="min-h-screen bg-navy-950 flex flex-col justify-center items-center px-4 relative">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-200 flex flex-col justify-center items-center px-4 relative">
       
       {/* Background lights */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -60,7 +60,7 @@ export default function AdminLoginClient() {
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-xl shadow-emerald-500/20">
             <Terminal className="h-6 w-6" />
           </div>
-          <h2 className="text-2xl font-extrabold tracking-tight text-white">
+          <h2 className="text-2xl font-extrabold tracking-tight text-foreground">
             Secure Admin Portal
           </h2>
           <p className="text-sm text-foreground/50">
@@ -72,7 +72,7 @@ export default function AdminLoginClient() {
         <div className="bg-card border border-card-border p-8 rounded-3xl shadow-2xl space-y-6">
           
           {error && (
-            <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-xs rounded-xl flex items-start gap-2.5 font-medium leading-relaxed">
+            <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-500 dark:text-red-400 text-xs rounded-xl flex items-start gap-2.5 font-medium leading-relaxed">
               <AlertCircle className="h-4 w-4 flex-shrink-0" />
               <span>{error}</span>
             </div>
@@ -92,7 +92,7 @@ export default function AdminLoginClient() {
                   placeholder="admin@aswalwebstudio.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-white"
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
                 />
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function AdminLoginClient() {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-white"
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
                 />
               </div>
             </div>
@@ -126,13 +126,13 @@ export default function AdminLoginClient() {
           </form>
 
           {/* Credentials Help Box */}
-          <div className="p-4 bg-navy-900 border border-border/55 rounded-2xl space-y-2.5 text-xs text-foreground/80 font-medium">
+          <div className="p-4 bg-background border border-border rounded-2xl space-y-2.5 text-xs text-foreground/80 font-medium">
             <span className="font-bold text-emerald-500 text-[10px] uppercase tracking-wider">Default Dev Credentials:</span>
             <div className="grid grid-cols-2 gap-2 text-foreground/65">
               <div>Email:</div>
-              <div className="text-right text-white font-semibold">admin@aswalwebstudio.com</div>
+              <div className="text-right text-foreground font-semibold">admin@aswalwebstudio.com</div>
               <div>Password:</div>
-              <div className="text-right text-white font-semibold">admin123</div>
+              <div className="text-right text-foreground font-semibold">admin123</div>
             </div>
           </div>
 

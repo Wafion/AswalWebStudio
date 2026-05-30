@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -21,6 +21,11 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-colors duration-200">
@@ -57,7 +62,7 @@ export default function Header() {
                 {link.label}
                 {isActive && (
                   <motion.span
-                    layoutId="activeNavIndicator"
+                     layoutId="activeNavIndicator"
                     className="absolute bottom-0 left-0 h-0.5 w-full bg-emerald-500 rounded-full"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
@@ -75,7 +80,13 @@ export default function Header() {
             className="p-2 rounded-xl border border-border hover:bg-card text-foreground/80 hover:text-foreground transition-all duration-200 cursor-pointer"
             aria-label="Toggle Theme"
           >
-            {theme === 'dark' ? <Sun className="h-5 w-5 text-amber-400" /> : <Moon className="h-5 w-5 text-slate-700" />}
+            {!mounted ? (
+              <div className="h-5 w-5" />
+            ) : theme === 'dark' ? (
+              <Sun className="h-5 w-5 text-amber-400" />
+            ) : (
+              <Moon className="h-5 w-5 text-slate-700" />
+            )}
           </button>
 
           {/* Contact Button */}
@@ -93,10 +104,16 @@ export default function Header() {
           {/* Mobile Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl border border-border bg-card/50 text-foreground/80"
+            className="p-2 rounded-xl border border-border bg-card/50 text-foreground/80 cursor-pointer"
             aria-label="Toggle Theme"
           >
-            {theme === 'dark' ? <Sun className="h-5 w-5 text-amber-400" /> : <Moon className="h-5 w-5 text-slate-700" />}
+            {!mounted ? (
+              <div className="h-5 w-5" />
+            ) : theme === 'dark' ? (
+              <Sun className="h-5 w-5 text-amber-400" />
+            ) : (
+              <Moon className="h-5 w-5 text-slate-700" />
+            )}
           </button>
 
           {/* Hamburger toggle */}

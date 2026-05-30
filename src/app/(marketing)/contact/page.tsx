@@ -39,10 +39,10 @@ const STYLE_OPTIONS = [
 ];
 
 const BUDGET_OPTIONS = [
-  '$1,000 - $3,000 (Starter)',
-  '$3,000 - $5,000 (Growth)',
-  '$5,000 - $10,000 (Scale)',
-  '$10,000+ (Enterprise)',
+  '₹3,000 - ₹10,000 (Starter / Pro)',
+  '₹10,000 - ₹25,000 (Business)',
+  '₹25,000 - ₹50,000 (Custom Web App)',
+  '₹50,000+ (Enterprise / Scale)',
 ];
 
 const TIMELINE_OPTIONS = [
@@ -75,7 +75,7 @@ function RequestForm() {
     websiteType: 'Business Website',
     pageCount: '1 - 5 Pages',
     designStyle: 'Minimalist & Elegant',
-    budgetRange: '$1,000 - $3,000 (Starter)',
+    budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
     deadline: 'Standard (2 - 4 Weeks)',
     description: '',
   });
@@ -97,26 +97,34 @@ function RequestForm() {
     }
 
     if (planParam) {
-      if (planParam.toLowerCase() === 'starter') {
+      const p = planParam.toLowerCase();
+      if (p.includes('starter')) {
         setFormData(prev => ({
           ...prev,
           websiteType: 'Business Website',
           pageCount: '1 - 5 Pages',
-          budgetRange: '$1,000 - $3,000 (Starter)',
+          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
         }));
-      } else if (planParam.toLowerCase() === 'professional') {
+      } else if (p.includes('professional')) {
         setFormData(prev => ({
           ...prev,
           websiteType: 'eCommerce Store',
           pageCount: '6 - 12 Pages',
-          budgetRange: '$3,000 - $5,000 (Growth)',
+          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
         }));
-      } else if (planParam.toLowerCase() === 'enterprise') {
+      } else if (p.includes('business')) {
+        setFormData(prev => ({
+          ...prev,
+          websiteType: 'Business Website',
+          pageCount: '25+ Pages (Custom)',
+          budgetRange: '₹10,000 - ₹25,000 (Business)',
+        }));
+      } else if (p.includes('custom') || p.includes('app')) {
         setFormData(prev => ({
           ...prev,
           websiteType: 'Web Application',
           pageCount: '25+ Pages (Custom)',
-          budgetRange: '$10,000+ (Enterprise)',
+          budgetRange: '₹50,000+ (Enterprise / Scale)',
         }));
       }
     }
@@ -198,7 +206,7 @@ function RequestForm() {
           websiteType: 'Business Website',
           pageCount: '1 - 5 Pages',
           designStyle: 'Minimalist & Elegant',
-          budgetRange: '$1,000 - $3,000 (Starter)',
+          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
           deadline: 'Standard (2 - 4 Weeks)',
           description: '',
         });

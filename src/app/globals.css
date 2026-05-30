@@ -31,18 +31,29 @@
 }
 
 :root {
-  --background: light-dark(#ffffff, #090e1a);
-  --foreground: light-dark(#0f172a, #f8fafc);
-  --border-color: light-dark(#e2e8f0, #1e293b);
-  --card-bg: light-dark(#f8fafc, #0e1726);
-  --card-border: light-dark(#e2e8f0, #1b2536);
-  --accent-color: light-dark(#059669, #10b981);
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --border-color: #e2e8f0;
+  --card-bg: #f8fafc;
+  --card-border: #e2e8f0;
+  --accent-color: #059669;
 
-  color-scheme: light dark;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: transparent;
 
-  /* Configure custom scrollbar */
-  scrollbar-color: light-dark(#cbd5e1, #1e293b) transparent;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   scrollbar-width: thin;
+}
+
+.dark {
+  --background: #090e1a;
+  --foreground: #f8fafc;
+  --border-color: #1e293b;
+  --card-bg: #0e1726;
+  --card-border: #1b2536;
+  --accent-color: #10b981;
+
+  --scrollbar-thumb: #1e293b;
 }
 
 /* Ensure focus management and outlines */
@@ -97,10 +108,15 @@ p {
 
 /* Glassmorphism Classes */
 .glass-panel {
-  background: light-dark(rgba(255, 255, 255, 0.7), rgba(15, 23, 42, 0.65));
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid light-dark(rgba(226, 232, 240, 0.8), rgba(30, 41, 59, 0.5));
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(30, 41, 59, 0.5);
 }
 
 .glass-panel-hover {
@@ -108,9 +124,15 @@ p {
 }
 
 .glass-panel-hover:hover {
-  background: light-dark(rgba(255, 255, 255, 0.85), rgba(15, 23, 42, 0.8));
-  border-color: light-dark(rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.4));
-  box-shadow: 0 10px 30px -10px light-dark(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.3));
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-panel-hover:hover {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
 /* Fade reveals custom animation */
