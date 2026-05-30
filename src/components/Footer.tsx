@@ -81,22 +81,22 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <Link href="/services" className="text-sm text-foreground/70 hover:text-emerald-500 transition-colors">
-                  Business Websites
+                  Web Development
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-foreground/70 hover:text-emerald-500 transition-colors">
-                  eCommerce Stores
+                <Link href="/design-services" className="text-sm text-foreground/70 hover:text-emerald-500 transition-colors">
+                  Brochure Design
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-foreground/70 hover:text-emerald-500 transition-colors">
-                  Web Applications
+                <Link href="/design-services" className="text-sm text-foreground/70 hover:text-emerald-500 transition-colors">
+                  Business Card Design
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-foreground/70 hover:text-emerald-500 transition-colors">
-                  SEO & Speed Optimization
+                <Link href="/design-services" className="text-sm text-foreground/70 hover:text-emerald-500 transition-colors">
+                  Branding Combo Offer
                 </Link>
               </li>
             </ul>

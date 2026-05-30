@@ -15,7 +15,9 @@ import {
   CheckCircle2, 
   Rocket,
   Phone,
-  Mail
+  Mail,
+  BookOpen,
+  CreditCard
 } from 'lucide-react';
 import Testimonials from '@/components/Testimonials';
 import FaqSection from '@/components/FaqSection';
@@ -47,6 +49,32 @@ const HIGHLIGHTS = [
     icon: Zap,
     title: 'Performance Tuning',
     desc: 'Page speed improvements yielding 90+ Lighthouse scores for higher Google SEO rankings.',
+  },
+];
+
+const DESIGN_HIGHLIGHTS = [
+  {
+    name: 'Professional Business Brochure Design',
+    desc: 'Custom corporate brochure layout designed with high-quality structure, typography, and brand-matching colors.',
+    price: '3,000',
+    popular: false,
+    cta: 'Order Brochure Design',
+  },
+  {
+    name: 'Brochure + Business Card Combo',
+    desc: 'Get a unified brand identity both online and offline. Brochure + Premium front & back business cards designed together.',
+    price: '3,500',
+    regularPrice: '4,500',
+    savings: '1,000',
+    popular: true,
+    cta: 'Get Combo Package',
+  },
+  {
+    name: 'Professional Business Card Design',
+    desc: 'Premium front & back layouts designed for a memorable impression. Includes print-ready files and high-res export.',
+    price: '1,500',
+    popular: false,
+    cta: 'Order Business Card Design',
   },
 ];
 
@@ -162,6 +190,94 @@ export default function HomePage() {
                 </div>
                 <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
                 <p className="text-sm text-foreground/70 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Design Services Showcase Section */}
+      <section className="py-20 bg-background border-t border-border relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="text-center space-y-4 mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 text-xs font-semibold">
+              <Sparkles className="h-3.5 w-3.5" /> High-End Graphic Design Services
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Professional <span className="text-emerald-500">Design Services</span>
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              Build a strong brand identity with professionally designed brochures and business cards. Combine print and digital presence for a premium reputation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+            {DESIGN_HIGHLIGHTS.map((item, i) => (
+              <div
+                key={i}
+                className={`p-8 rounded-3xl border flex flex-col justify-between relative transition-all duration-300 ${
+                  item.popular
+                    ? 'border-emerald-500 bg-card shadow-lg shadow-emerald-500/5 md:-translate-y-2 z-10'
+                    : 'border-card-border bg-card/60 shadow-sm hover:shadow-md'
+                }`}
+              >
+                {item.popular && (
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-[10px] font-bold uppercase rounded-full tracking-widest shadow-md">
+                    Most Popular Combo
+                  </span>
+                )}
+
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-2xl">
+                      {i === 0 ? (
+                        <BookOpen className="h-6 w-6" />
+                      ) : i === 1 ? (
+                        <Sparkles className="h-6 w-6" />
+                      ) : (
+                        <CreditCard className="h-6 w-6" />
+                      )}
+                    </div>
+                    {item.savings && (
+                      <span className="text-[10px] bg-red-500/10 text-red-500 border border-red-500/20 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                        Save ₹{item.savings}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="font-extrabold text-xl text-foreground mb-3">{item.name}</h3>
+                  <p className="text-sm text-foreground/70 leading-relaxed mb-6">{item.desc}</p>
+                </div>
+
+                <div>
+                  <div className="mb-6 flex flex-col">
+                    {item.regularPrice && (
+                      <span className="text-xs font-semibold text-foreground/40 line-through mb-0.5">
+                        Regular Price: ₹{item.regularPrice}
+                      </span>
+                    )}
+                    <div className="flex items-baseline">
+                      <span className="text-3xl font-extrabold text-foreground">₹{item.price}</span>
+                      <span className="text-xs text-foreground/50 font-medium ml-1.5">/ project</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    href={`/contact?plan=${encodeURIComponent(item.name)}`}
+                    className={`w-full inline-flex items-center justify-center py-3.5 px-4 rounded-xl text-xs font-bold transition-all shadow-md group ${
+                      item.popular
+                        ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20'
+                        : 'bg-background hover:bg-emerald-500 hover:text-white border border-border text-foreground hover:border-emerald-500'
+                    }`}
+                  >
+                    {item.cta}
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

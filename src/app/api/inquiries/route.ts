@@ -16,6 +16,10 @@ export async function POST(req: NextRequest) {
       deadline, 
       features, 
       description,
+      brandColors,
+      logoStatus,
+      designPreferences,
+      designNotes,
       files 
     } = body;
 
@@ -40,6 +44,10 @@ export async function POST(req: NextRequest) {
       deadline: deadline || '',
       features: features || [],
       description: description || '',
+      brandColors: brandColors || '',
+      logoStatus: logoStatus || '',
+      designPreferences: designPreferences || '',
+      designNotes: designNotes || '',
       files: files || [],
     });
 
@@ -48,11 +56,8 @@ export async function POST(req: NextRequest) {
     console.log(`
       Subject: Aswal Web Studio - Proposal Request Confirmed
       Body: Hi ${name},
-      Thank you for contacting Aswal Web Studio. We have successfully registered your website request for a "${websiteType}".
-      Our project strategist will review your requirements:
-      - Budget: ${budgetRange || 'Unspecified'}
-      - Deadline: ${deadline || 'Standard'}
-      We will contact you shortly.
+      Thank you for contacting Aswal Web Studio. We have successfully registered your request for "${websiteType}".
+      Our project strategist will review your requirements and contact you shortly.
       Best regards,
       The Aswal Web Studio Team
     `);
@@ -61,24 +66,28 @@ export async function POST(req: NextRequest) {
     console.log(`[EMAIL SENDING] Sending lead details to admin: aman9lion@gmail.com...`);
     console.log(`
       Subject: [NEW LEAD ALERT] Aswal Web Studio - Lead from ${name}
-      Body: A new website proposal request has been submitted.
+      Body: A new proposal request has been submitted.
       Details:
       - Client Name: ${name}
       - Client Email: ${email}
       - Client Phone: ${phone || 'N/A'}
       - Company: ${companyName || 'N/A'}
-      - Project Type: ${websiteType}
+      - Project/Service Type: ${websiteType}
       - Target Pages: ${pageCount || 'N/A'}
       - Style Preference: ${designStyle || 'N/A'}
       - Budget: ${budgetRange || 'Open'}
       - Deadline: ${deadline || 'Standard'}
       - Features Requested: ${(features || []).join(', ') || 'None'}
+      - Brand Colors: ${brandColors || 'N/A'}
+      - Logo Option: ${logoStatus || 'N/A'}
+      - Design Preferences: ${designPreferences || 'N/A'}
+      - Design Notes: ${designNotes || 'N/A'}
       - Brief Description: ${description || 'No description provided'}
       - Attachments: ${(files || []).map((f: any) => f.name).join(', ') || 'None'}
     `);
 
     // Simulate Admin Notification
-    console.log(`[ADMIN NOTIFICATION] New Lead Captured: "${name}" requested a "${websiteType}" (Budget: ${budgetRange || 'N/A'})`);
+    console.log(`[ADMIN NOTIFICATION] New Lead Captured: "${name}" requested "${websiteType}"`);
 
     return NextResponse.json(
       { message: 'Inquiry saved successfully', inquiry: newInquiry },

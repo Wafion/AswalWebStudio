@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import FloatingContacts from "@/components/FloatingContacts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,8 +72,20 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-200">
+        <div className="bg-gradient-to-r from-blue-600 via-emerald-600 to-teal-600 text-white text-xs font-semibold py-2.5 px-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-center relative z-40 shadow-md">
+          <span>
+            🚀 <strong>Launch your business online and offline!</strong> Website Starting at ₹3,000 | Brochure Design ₹3,000 | Business Card Design ₹1,500 | Combo Offer ₹3,500
+          </span>
+          <a
+            href="/contact"
+            className="px-3 py-1 bg-white text-emerald-700 hover:bg-slate-100 font-bold rounded-full transition-all text-[10px] uppercase shadow-sm whitespace-nowrap cursor-pointer"
+          >
+            Get a Free Quote
+          </a>
+        </div>
         <ThemeProvider>
           {children}
+          <FloatingContacts />
         </ThemeProvider>
       </body>
     </html>

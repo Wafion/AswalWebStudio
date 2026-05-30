@@ -24,6 +24,10 @@ const WEBSITE_TYPES = [
   'Landing Page',
   'Web Application',
   'Website Redesign',
+  'Professional Brochure Design',
+  'Professional Business Card Design',
+  'Brochure + Business Card Combo',
+  'Website + Design Package',
   'Website Maintenance',
   'Other',
 ];
@@ -39,8 +43,11 @@ const STYLE_OPTIONS = [
 ];
 
 const BUDGET_OPTIONS = [
-  '₹3,000 - ₹10,000 (Starter / Pro)',
-  '₹10,000 - ₹25,000 (Business)',
+  '₹1,500 (Professional Business Card Design)',
+  '₹3,000 (Professional Business Brochure Design)',
+  '₹3,500 (Brochure + Business Card Combo)',
+  '₹3,000 - ₹10,000 (Starter / Pro Website)',
+  '₹10,000 - ₹25,000 (Business Website)',
   '₹25,000 - ₹50,000 (Custom Web App)',
   '₹50,000+ (Enterprise / Scale)',
 ];
@@ -75,9 +82,13 @@ function RequestForm() {
     websiteType: 'Business Website',
     pageCount: '1 - 5 Pages',
     designStyle: 'Minimalist & Elegant',
-    budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
+    budgetRange: '₹3,000 - ₹10,000 (Starter / Pro Website)',
     deadline: 'Standard (2 - 4 Weeks)',
     description: '',
+    brandColors: '',
+    logoStatus: 'Will Upload Logo',
+    designPreferences: '',
+    designNotes: '',
   });
 
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
@@ -103,21 +114,21 @@ function RequestForm() {
           ...prev,
           websiteType: 'Business Website',
           pageCount: '1 - 5 Pages',
-          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
+          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro Website)',
         }));
-      } else if (p.includes('professional')) {
+      } else if (p.includes('professional website')) {
         setFormData(prev => ({
           ...prev,
-          websiteType: 'eCommerce Store',
+          websiteType: 'Business Website',
           pageCount: '6 - 12 Pages',
-          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
+          budgetRange: '₹10,000 - ₹25,000 (Business Website)',
         }));
-      } else if (p.includes('business')) {
+      } else if (p.includes('business website')) {
         setFormData(prev => ({
           ...prev,
           websiteType: 'Business Website',
           pageCount: '25+ Pages (Custom)',
-          budgetRange: '₹10,000 - ₹25,000 (Business)',
+          budgetRange: '₹10,000 - ₹25,000 (Business Website)',
         }));
       } else if (p.includes('custom') || p.includes('app')) {
         setFormData(prev => ({
@@ -125,6 +136,30 @@ function RequestForm() {
           websiteType: 'Web Application',
           pageCount: '25+ Pages (Custom)',
           budgetRange: '₹50,000+ (Enterprise / Scale)',
+        }));
+      } else if (p.includes('brochure') && p.includes('card')) {
+        setFormData(prev => ({
+          ...prev,
+          websiteType: 'Brochure + Business Card Combo',
+          budgetRange: '₹3,500 (Brochure + Business Card Combo)',
+        }));
+      } else if (p.includes('brochure')) {
+        setFormData(prev => ({
+          ...prev,
+          websiteType: 'Professional Brochure Design',
+          budgetRange: '₹3,000 (Professional Business Brochure Design)',
+        }));
+      } else if (p.includes('card')) {
+        setFormData(prev => ({
+          ...prev,
+          websiteType: 'Professional Business Card Design',
+          budgetRange: '₹1,500 (Professional Business Card Design)',
+        }));
+      } else if (p.includes('bundle') || p.includes('package')) {
+        setFormData(prev => ({
+          ...prev,
+          websiteType: 'Website + Design Package',
+          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro Website)',
         }));
       }
     }
@@ -206,9 +241,13 @@ function RequestForm() {
           websiteType: 'Business Website',
           pageCount: '1 - 5 Pages',
           designStyle: 'Minimalist & Elegant',
-          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro)',
+          budgetRange: '₹3,000 - ₹10,000 (Starter / Pro Website)',
           deadline: 'Standard (2 - 4 Weeks)',
           description: '',
+          brandColors: '',
+          logoStatus: 'Will Upload Logo',
+          designPreferences: '',
+          designNotes: '',
         });
         setSelectedFeatures([]);
         setUploadedFiles([]);
@@ -222,6 +261,13 @@ function RequestForm() {
     }
   };
 
+  const isGraphicDesignSelected = 
+    formData.websiteType.includes('Brochure') || 
+    formData.websiteType.includes('Card') || 
+    formData.websiteType.includes('Design') || 
+    formData.websiteType.includes('Combo') ||
+    formData.websiteType === 'Website + Design Package';
+
   return (
     <div className="bg-card rounded-3xl border border-card-border p-6 sm:p-10 shadow-xl max-w-4xl mx-auto">
       
@@ -231,7 +277,7 @@ function RequestForm() {
           <div>
             <h4 className="font-extrabold text-lg">Request Submitted Successfully!</h4>
             <p className="text-sm text-foreground/80 mt-1 leading-relaxed">
-              We have received your custom website request. An email confirmation has been sent to you, and our design leads will contact you within 24 hours to schedule a proposal review.
+              We have received your custom proposal request. An email confirmation has been sent to you, and our design leads will contact you within 24 hours to schedule a proposal review.
             </p>
           </div>
         </div>
@@ -303,7 +349,7 @@ function RequestForm() {
                   id="phone"
                   type="tel"
                   name="phone"
-                  placeholder="e.g. +1 (555) 123-4567"
+                  placeholder="e.g. +91 7304610459"
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
@@ -313,7 +359,7 @@ function RequestForm() {
 
             {/* Company Name */}
             <div className="space-y-2">
-              <label htmlFor="companyName" className="text-xs font-bold text-foreground/70 uppercase">Company Name</label>
+              <label htmlFor="companyName" className="text-xs font-bold text-foreground/70 uppercase">Company / Brand Name</label>
               <div className="relative">
                 <Building className="absolute left-3 top-3 h-4 w-4 text-foreground/40" />
                 <input
@@ -340,7 +386,7 @@ function RequestForm() {
             
             {/* Website Type */}
             <div className="space-y-2">
-              <label htmlFor="websiteType" className="text-xs font-bold text-foreground/70 uppercase">Type of Website *</label>
+              <label htmlFor="websiteType" className="text-xs font-bold text-foreground/70 uppercase">Service Required *</label>
               <select
                 id="websiteType"
                 name="websiteType"
@@ -350,38 +396,6 @@ function RequestForm() {
               >
                 {WEBSITE_TYPES.map(type => (
                   <option key={type} value={type}>{type}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Page Count */}
-            <div className="space-y-2">
-              <label htmlFor="pageCount" className="text-xs font-bold text-foreground/70 uppercase">Number of Pages</label>
-              <select
-                id="pageCount"
-                name="pageCount"
-                value={formData.pageCount}
-                onChange={handleChange}
-                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
-              >
-                {PAGES_OPTIONS.map(opt => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Design Style */}
-            <div className="space-y-2">
-              <label htmlFor="designStyle" className="text-xs font-bold text-foreground/70 uppercase">Preferred Design Style</label>
-              <select
-                id="designStyle"
-                name="designStyle"
-                value={formData.designStyle}
-                onChange={handleChange}
-                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
-              >
-                {STYLE_OPTIONS.map(opt => (
-                  <option key={opt} value={opt}>{opt}</option>
                 ))}
               </select>
             </div>
@@ -418,41 +432,156 @@ function RequestForm() {
               </select>
             </div>
 
+            {/* Conditionally show Website Specs */}
+            {!isGraphicDesignSelected && (
+              <>
+                {/* Page Count */}
+                <div className="space-y-2">
+                  <label htmlFor="pageCount" className="text-xs font-bold text-foreground/70 uppercase">Number of Pages</label>
+                  <select
+                    id="pageCount"
+                    name="pageCount"
+                    value={formData.pageCount}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  >
+                    {PAGES_OPTIONS.map(opt => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Design Style */}
+                <div className="space-y-2">
+                  <label htmlFor="designStyle" className="text-xs font-bold text-foreground/70 uppercase">Preferred Design Style</label>
+                  <select
+                    id="designStyle"
+                    name="designStyle"
+                    value={formData.designStyle}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  >
+                    {STYLE_OPTIONS.map(opt => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+              </>
+            )}
+
           </div>
         </div>
 
-        {/* Section 3: Features Needed */}
-        <div className="space-y-6">
-          <h3 className="text-lg font-bold text-foreground border-b border-border pb-2">
-            3. Integrated Features Needed
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {FEATURE_LIST.map(feature => {
-              const isChecked = selectedFeatures.includes(feature.id);
-              return (
-                <button
-                  type="button"
-                  key={feature.id}
-                  onClick={() => handleFeatureToggle(feature.id)}
-                  className={`p-4 rounded-2xl border text-center transition-all cursor-pointer flex flex-col justify-between items-center h-24 ${
-                    isChecked
-                      ? 'border-emerald-500 bg-emerald-500/5 text-emerald-500 shadow-sm'
-                      : 'border-border bg-background hover:bg-card/80 text-foreground/80'
-                  }`}
+        {/* Section 3: Integrated Features or Graphic Design Questionnaire */}
+        {isGraphicDesignSelected ? (
+          <div className="space-y-6">
+            <h3 className="text-lg font-bold text-foreground border-b border-border pb-2">
+              3. Graphic Design Questionnaire
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Brand Colors */}
+              <div className="space-y-2">
+                <label htmlFor="brandColors" className="text-xs font-bold text-foreground/70 uppercase">
+                  Brand Colors & Theme *
+                </label>
+                <input
+                  id="brandColors"
+                  type="text"
+                  name="brandColors"
+                  required={isGraphicDesignSelected}
+                  placeholder="e.g. Emerald green (#10B981) and charcoal, gold accents"
+                  value={formData.brandColors}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                />
+              </div>
+
+              {/* Logo Status */}
+              <div className="space-y-2">
+                <label htmlFor="logoStatus" className="text-xs font-bold text-foreground/70 uppercase">
+                  Logo Requirements *
+                </label>
+                <select
+                  id="logoStatus"
+                  name="logoStatus"
+                  value={formData.logoStatus}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
                 >
-                  <span className="text-xs font-bold leading-tight">{feature.label}</span>
-                  <div
-                    className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                      isChecked ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-border bg-card'
+                  <option value="Will Upload Logo">I have a logo (will upload below)</option>
+                  <option value="Need Logo Design">I need a new logo designed (₹1,500 add-on)</option>
+                  <option value="Text Only">No logo, text only is fine</option>
+                </select>
+              </div>
+
+              {/* Design Preferences */}
+              <div className="space-y-2 md:col-span-2">
+                <label htmlFor="designPreferences" className="text-xs font-bold text-foreground/70 uppercase">
+                  Design Preferences / Style *
+                </label>
+                <input
+                  id="designPreferences"
+                  type="text"
+                  name="designPreferences"
+                  required={isGraphicDesignSelected}
+                  placeholder="e.g. Modern, minimalist, corporate, dark background, premium feel"
+                  value={formData.designPreferences}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                />
+              </div>
+
+              {/* Design Notes */}
+              <div className="space-y-2 md:col-span-2">
+                <label htmlFor="designNotes" className="text-xs font-bold text-foreground/70 uppercase">
+                  Design Text Content & Copy *
+                </label>
+                <textarea
+                  id="designNotes"
+                  name="designNotes"
+                  rows={4}
+                  required={isGraphicDesignSelected}
+                  placeholder="For Business Card: Name, Title, Email, Phone, Address. For Brochure: Outline of sections, headings, service descriptions, and any copy to include."
+                  value={formData.designNotes}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground resize-y"
+                />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            <h3 className="text-lg font-bold text-foreground border-b border-border pb-2">
+              3. Integrated Features Needed
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {FEATURE_LIST.map(feature => {
+                const isChecked = selectedFeatures.includes(feature.id);
+                return (
+                  <button
+                    type="button"
+                    key={feature.id}
+                    onClick={() => handleFeatureToggle(feature.id)}
+                    className={`p-4 rounded-2xl border text-center transition-all cursor-pointer flex flex-col justify-between items-center h-24 ${
+                      isChecked
+                        ? 'border-emerald-500 bg-emerald-500/5 text-emerald-500 shadow-sm'
+                        : 'border-border bg-background hover:bg-card/80 text-foreground/80'
                     }`}
                   >
-                    {isChecked && <Check className="h-2.5 w-2.5" />}
-                  </div>
-                </button>
-              );
-            })}
+                    <span className="text-xs font-bold leading-tight">{feature.label}</span>
+                    <div
+                      className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                        isChecked ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-border bg-card'
+                      }`}
+                    >
+                      {isChecked && <Check className="h-2.5 w-2.5" />}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Section 4: Project Description */}
         <div className="space-y-6">
@@ -531,7 +660,7 @@ function RequestForm() {
             disabled={isSubmitting}
             className="w-full inline-flex items-center justify-center py-4 px-6 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-2xl shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/35 transition-all text-base disabled:opacity-50 cursor-pointer"
           >
-            {isSubmitting ? 'Submitting Proposal...' : 'Request My Website'}
+            {isSubmitting ? 'Submitting Proposal...' : isGraphicDesignSelected ? 'Request Design Proposal' : 'Request My Website'}
             <ChevronRight className="ml-1 h-5 w-5" />
           </button>
         </div>

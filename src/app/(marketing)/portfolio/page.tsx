@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Tag, ShieldCheck, Cpu } from 'lucide-react';
 
-const CATEGORIES = ['All', 'Web Applications', 'eCommerce', 'Corporate'];
+const CATEGORIES = ['All', 'Websites', 'Brochure Designs', 'Business Card Designs'];
 
 const PROJECTS = [
   {
     title: 'Nova SaaS Analytics Dashboard',
-    category: 'Web Applications',
+    category: 'Websites',
     description: 'A futuristic analytics platform that collects, processes, and displays real-time user engagement data for digital products.',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Recharts'],
     image: '/saas_dashboard.png',
@@ -18,7 +18,7 @@ const PROJECTS = [
   },
   {
     title: 'Maison Étoile E-commerce Store',
-    category: 'eCommerce',
+    category: 'Websites',
     description: 'A boutique luxury fashion digital storefront featuring highly optimized search paths, seamless checkout, and admin stock management.',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Supabase'],
     image: '/ecommerce_shop.png',
@@ -26,10 +26,42 @@ const PROJECTS = [
   },
   {
     title: 'GlobeTrek Travel Planner',
-    category: 'Web Applications',
+    category: 'Websites',
     description: 'An interactive travel booking portal and trip planner integrated with map visualizations, route outlines, and flight booking updates.',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Leaflet Maps', 'PostgreSQL'],
     image: '/booking_portal.png',
+    demoUrl: '#',
+  },
+  {
+    title: 'Aerospace Tech Corporate Brochure',
+    category: 'Brochure Designs',
+    description: 'A modern, high-tech corporate brochure designed for a next-generation aerospace parts manufacturer.',
+    technologies: ['Graphic Design', 'Adobe Illustrator', 'Brand Identity', 'Print Layout', 'CMYK Print-Ready'],
+    image: '/brochure_mockup_1.png',
+    demoUrl: '#',
+  },
+  {
+    title: 'Solas Green Energy Booklet',
+    category: 'Brochure Designs',
+    description: 'An elegant 8-page promotional business brochure outlining clean energy initiatives and solar hardware catalogs.',
+    technologies: ['Graphic Design', 'Adobe InDesign', 'Typography', 'Color Theory', 'PDF Booklet'],
+    image: '/brochure_mockup_2.png',
+    demoUrl: '#',
+  },
+  {
+    title: 'Minimalist Matte Executive Card',
+    category: 'Business Card Designs',
+    description: 'Ultra-clean front & back executive business card design using elegant fonts and generous white space.',
+    technologies: ['Graphic Design', 'Vector Illustration', 'Corporate Identity', 'Print Specifications'],
+    image: '/business_card_mockup_1.png',
+    demoUrl: '#',
+  },
+  {
+    title: 'Apex Venture Capital Premium Card',
+    category: 'Business Card Designs',
+    description: 'Sleek dark-themed business card with gold foil accent mockups, tailored for a premium venture firm.',
+    technologies: ['Graphic Design', 'Foil Stamping Layout', 'Adobe Illustrator', 'Premium Print-Ready'],
+    image: '/business_card_mockup_2.png',
     demoUrl: '#',
   },
 ];

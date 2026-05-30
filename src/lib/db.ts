@@ -15,6 +15,10 @@ export interface Inquiry {
   deadline?: string;
   features: string[];
   description?: string;
+  brandColors?: string;
+  logoStatus?: string;
+  designPreferences?: string;
+  designNotes?: string;
   files: Array<{ name: string; size: number; url?: string }>;
   status: 'New' | 'In Discussion' | 'In Progress' | 'Completed';
   createdAt: string;
