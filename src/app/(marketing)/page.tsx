@@ -86,7 +86,7 @@ export default function HomePage() {
       <section className="relative pt-20 pb-24 md:pt-32 md:pb-36 bg-background">
         
         {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
@@ -98,7 +98,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 text-xs font-semibold"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold"
             >
               <Sparkles className="h-3.5 w-3.5" /> Premium Web Development Agency
             </motion.div>
@@ -133,7 +133,7 @@ export default function HomePage() {
             >
               <Link
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-emerald-500 hover:bg-emerald-600 rounded-2xl transition-all shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/35 hover:-translate-y-0.5 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-accent hover:bg-accent-hover rounded-2xl transition-all shadow-xl shadow-accent/20 hover:shadow-accent/35 hover:-translate-y-0.5 group"
               >
                 Request a Website
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -172,7 +172,7 @@ export default function HomePage() {
           
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              What We <span className="text-emerald-500">Specialize In</span>
+              What We <span className="text-primary">Specialize In</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               We design and construct digital products using cutting-edge web technologies, tailored for optimal performance.
@@ -185,7 +185,7 @@ export default function HomePage() {
                 key={i}
                 className="p-8 rounded-3xl border border-card-border bg-card glass-panel-hover flex flex-col items-start space-y-4"
               >
-                <div className="p-3.5 rounded-2xl bg-emerald-500/10 text-emerald-500">
+                <div className="p-3.5 rounded-2xl bg-primary/10 text-primary">
                   <item.icon className="h-6 w-6" />
                 </div>
                 <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
@@ -199,16 +199,16 @@ export default function HomePage() {
 
       {/* Design Services Showcase Section */}
       <section className="py-20 bg-background border-t border-border relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold">
               <Sparkles className="h-3.5 w-3.5" /> High-End Graphic Design Services
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              Professional <span className="text-emerald-500">Design Services</span>
+              Professional <span className="text-primary">Design Services</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               Build a strong brand identity with professionally designed brochures and business cards. Combine print and digital presence for a premium reputation.
@@ -221,19 +221,19 @@ export default function HomePage() {
                 key={i}
                 className={`p-8 rounded-3xl border flex flex-col justify-between relative transition-all duration-300 ${
                   item.popular
-                    ? 'border-emerald-500 bg-card shadow-lg shadow-emerald-500/5 md:-translate-y-2 z-10'
+                    ? 'border-accent bg-card shadow-lg shadow-accent/5 md:-translate-y-2 z-10'
                     : 'border-card-border bg-card/60 shadow-sm hover:shadow-md'
                 }`}
               >
                 {item.popular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-[10px] font-bold uppercase rounded-full tracking-widest shadow-md">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-white text-[10px] font-bold uppercase rounded-full tracking-widest shadow-md">
                     Most Popular Combo
                   </span>
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-2xl">
+                    <div className="p-3 bg-primary/10 text-primary rounded-2xl">
                       {i === 0 ? (
                         <BookOpen className="h-6 w-6" />
                       ) : i === 1 ? (
@@ -270,8 +270,8 @@ export default function HomePage() {
                     href={`/contact?plan=${encodeURIComponent(item.name)}`}
                     className={`w-full inline-flex items-center justify-center py-3.5 px-4 rounded-xl text-xs font-bold transition-all shadow-md group ${
                       item.popular
-                        ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20'
-                        : 'bg-background hover:bg-emerald-500 hover:text-white border border-border text-foreground hover:border-emerald-500'
+                        ? 'bg-accent hover:bg-accent-hover text-white shadow-accent/20'
+                        : 'bg-background hover:bg-primary hover:text-white border border-border text-foreground hover:border-primary'
                     }`}
                   >
                     {item.cta}
@@ -307,7 +307,7 @@ export default function HomePage() {
                   'Robust dashboards with clean data export structures',
                 ].map((point, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-sm font-medium text-foreground/90">{point}</span>
                   </div>
                 ))}
@@ -315,10 +315,10 @@ export default function HomePage() {
             </div>
 
             {/* Premium Callout Box */}
-            <div className="p-8 sm:p-12 rounded-3xl border border-emerald-500/25 bg-emerald-500/5 relative overflow-hidden flex flex-col justify-between h-full">
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl" />
+            <div className="p-8 sm:p-12 rounded-3xl border border-primary/25 bg-primary/5 relative overflow-hidden flex flex-col justify-between h-full">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl" />
               <div className="space-y-6">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-lg shadow-emerald-500/20">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/20">
                   <Rocket className="h-6 w-6" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-foreground">
@@ -331,7 +331,7 @@ export default function HomePage() {
               <div className="pt-8">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-500/15"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all shadow-md shadow-accent/15"
                 >
                   Configure My Website Proposal
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -354,7 +354,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
-              Why Businesses <span className="text-emerald-500">Trust Aswal Web Studio</span>
+              Why Businesses <span className="text-primary">Trust Aswal Web Studio</span>
             </h2>
             <p className="text-sm text-foreground/70 max-w-xl mx-auto">
               We combine design excellence with robust engineering to deliver clean, scalable solutions.
@@ -372,9 +372,9 @@ export default function HomePage() {
             ].map((item, index) => (
               <div 
                 key={index} 
-                className="p-5 bg-card border border-card-border rounded-2xl shadow-sm text-center flex flex-col items-center justify-between space-y-3 hover:border-emerald-500/30 transition-all group"
+                className="p-5 bg-card border border-card-border rounded-2xl shadow-sm text-center flex flex-col items-center justify-between space-y-3 hover:border-primary/30 transition-all group"
               >
-                <div className="h-8 w-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+                <div className="h-8 w-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
                   <CheckCircle2 className="h-5 w-5" />
                 </div>
                 <div className="space-y-1">
@@ -390,7 +390,7 @@ export default function HomePage() {
       {/* Lead Conversion Section */}
       <section className="py-24 bg-background relative border-t border-border overflow-hidden">
         {/* Glow lights */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
@@ -422,7 +422,7 @@ export default function HomePage() {
             {/* Request Website */}
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl transition-all shadow-md hover:-translate-y-0.5 group cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-white bg-accent hover:bg-accent-hover rounded-xl transition-all shadow-md hover:-translate-y-0.5 group cursor-pointer"
             >
               Request Website
               <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />

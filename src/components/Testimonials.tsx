@@ -34,11 +34,11 @@ export default function Testimonials() {
         
         {/* Title */}
         <div className="text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold">
             <ShieldCheck className="h-3.5 w-3.5" /> Client Success Stories
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            Trusted by Growing <span className="text-emerald-500">Businesses</span>
+            Trusted by Growing <span className="text-primary">Businesses</span>
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             See how we help businesses, startups, and individuals build high-performing digital platforms.
@@ -52,7 +52,7 @@ export default function Testimonials() {
               key={idx}
               className="flex flex-col justify-between p-8 rounded-3xl border border-card-border bg-card shadow-sm hover:shadow-md transition-all duration-300 relative group"
             >
-              <div className="absolute top-6 right-8 text-foreground/5 group-hover:text-emerald-500/10 transition-colors duration-300">
+              <div className="absolute top-6 right-8 text-foreground/5 group-hover:text-primary/10 transition-colors duration-300">
                 <Quote className="h-12 w-12" />
               </div>
               
@@ -60,7 +60,7 @@ export default function Testimonials() {
                 {/* Rating */}
                 <div className="flex items-center space-x-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-emerald-500 text-emerald-500" />
+                    <Star key={i} className="h-4 w-4 fill-warning text-warning" />
                   ))}
                 </div>
 
@@ -76,7 +76,7 @@ export default function Testimonials() {
                   <h4 className="font-bold text-sm text-foreground">{testimonial.name}</h4>
                   <p className="text-xs text-foreground/60">{testimonial.role}</p>
                 </div>
-                <div className="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-500 text-xs font-bold uppercase tracking-wider">
+                <div className="px-2.5 py-1 rounded-lg bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
                   {testimonial.logo}
                 </div>
               </div>

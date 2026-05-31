@@ -67,7 +67,7 @@ export default function DesignServicesPage() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 text-xs font-semibold"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold"
           >
             <Sparkles className="h-3.5 w-3.5" /> High-End Graphic Design Services
           </motion.div>
@@ -77,7 +77,7 @@ export default function DesignServicesPage() {
             transition={{ delay: 0.1 }}
             className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground"
           >
-            Professional <span className="text-emerald-500">Design Services</span>
+            Professional <span className="text-primary">Design Services</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -101,19 +101,19 @@ export default function DesignServicesPage() {
                 transition={{ delay: index * 0.1 + 0.3 }}
                 className={`flex flex-col justify-between p-8 rounded-3xl border relative transition-all duration-300 ${
                   service.popular
-                    ? 'border-emerald-500 bg-card shadow-lg shadow-emerald-500/5 md:-translate-y-4 z-10'
+                    ? 'border-accent bg-card shadow-lg shadow-accent/5 md:-translate-y-4 z-10'
                     : 'border-card-border bg-card shadow-sm hover:shadow-md'
                 }`}
               >
                 {service.popular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-[10px] font-bold uppercase rounded-full tracking-widest shadow-md">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-white text-[10px] font-bold uppercase rounded-full tracking-widest shadow-md">
                     Most Popular Combo
                   </span>
                 )}
 
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-2xl">
+                    <div className={`p-3 rounded-2xl ${service.popular ? 'bg-accent/10 text-accent' : 'bg-primary/10 text-primary'}`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     {service.savings && (
@@ -141,7 +141,7 @@ export default function DesignServicesPage() {
                   <ul className="space-y-3 mb-8 border-t border-border/40 pt-6">
                     {service.features.map((feat, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-xs text-foreground/90 leading-tight font-medium">
-                        <Check className="h-4 w-4 text-emerald-500 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-success flex-shrink-0" />
                         {feat}
                       </li>
                     ))}
@@ -152,8 +152,8 @@ export default function DesignServicesPage() {
                   href={`/contact?plan=${encodeURIComponent(service.name)}`}
                   className={`w-full inline-flex items-center justify-center py-3.5 px-4 rounded-xl text-xs font-bold transition-all shadow-md group ${
                     service.popular
-                      ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20'
-                      : 'bg-background hover:bg-emerald-500 hover:text-white border border-border text-foreground hover:border-emerald-500'
+                      ? 'bg-accent hover:bg-accent-hover text-white shadow-accent/20'
+                      : 'bg-background hover:bg-primary hover:text-white border border-border text-foreground hover:border-primary'
                   }`}
                 >
                   {service.cta}
@@ -173,7 +173,7 @@ export default function DesignServicesPage() {
           <div className="pt-4">
             <Link
               href="/contact?plan=Website%20%2B%20Design%20Package"
-              className="inline-flex items-center justify-center px-6 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-500/15"
+              className="inline-flex items-center justify-center px-6 py-3.5 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-all shadow-md shadow-accent/15"
             >
               Configure Website + Design Bundle
               <ArrowRight className="ml-2 h-4 w-4" />

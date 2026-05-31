@@ -148,9 +148,9 @@ export default function AdminDashboardClient({ session }: { session: any }) {
         <div className="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="font-extrabold text-lg text-foreground tracking-tight">
-              AswalWebStudio <span className="text-emerald-500">Admin</span>
+              AswalWebStudio <span className="text-primary">Admin</span>
             </span>
-            <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold uppercase rounded-md">
+            <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-md">
               Lead Center
             </span>
           </div>
@@ -185,7 +185,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
 
           {/* Card 2 */}
           <div className="p-5 rounded-2xl border border-card-border bg-card shadow-sm space-y-2">
-            <div className="flex items-center justify-between text-emerald-500">
+            <div className="flex items-center justify-between text-primary">
               <span className="text-xs font-bold uppercase tracking-wider">New Proposals</span>
               <Sparkles className="h-4 w-4" />
             </div>
@@ -223,7 +223,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
               placeholder="Search leads name, description..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-sm text-foreground"
+              className="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-sm text-foreground"
             />
           </div>
 
@@ -259,7 +259,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
             <button
               onClick={handleExportCSV}
               disabled={filteredInquiries.length === 0}
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/10 cursor-pointer disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded-xl text-xs font-bold shadow-md shadow-primary/10 cursor-pointer disabled:opacity-50"
             >
               <FileSpreadsheet className="h-3.5 w-3.5" /> Export CSV
             </button>
@@ -302,7 +302,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
                         key={inq.id} 
                         onClick={() => setSelectedInquiry(inq)}
                         className={`hover:bg-card/30 transition-colors cursor-pointer ${
-                          isSelected ? 'bg-emerald-500/5 hover:bg-emerald-500/5 border-l-2 border-l-emerald-500' : ''
+                          isSelected ? 'bg-primary/5 hover:bg-primary/5 border-l-2 border-l-primary' : ''
                         }`}
                       >
                         {/* Name & Contact */}
@@ -327,7 +327,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
                         {/* Status Label */}
                         <td className="p-4 text-center">
                           <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                            inq.status === 'New' ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20' :
+                            inq.status === 'New' ? 'bg-success/10 text-success border border-success/20' :
                             inq.status === 'In Discussion' ? 'bg-yellow-500/10 text-yellow-600 border border-yellow-500/20' :
                             inq.status === 'In Progress' ? 'bg-blue-500/10 text-blue-500 border border-blue-500/20' :
                             'bg-foreground/10 text-foreground/70'
@@ -341,7 +341,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
                           <select
                             value={inq.status}
                             onChange={(e) => handleStatusUpdate(inq.id, e.target.value as Inquiry['status'])}
-                            className="text-xs font-semibold px-2 py-1 bg-background border border-border rounded-lg focus:outline-none text-foreground focus:border-emerald-500 cursor-pointer"
+                            className="text-xs font-semibold px-2 py-1 bg-background border border-border rounded-lg focus:outline-none text-foreground focus:border-primary cursor-pointer"
                           >
                             <option value="New">New</option>
                             <option value="In Discussion">In Discussion</option>
@@ -405,7 +405,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
                     </div>
                     <div className="space-y-1">
                       <span className="text-[10px] text-foreground/45 uppercase">Budget Range</span>
-                      <p className="text-foreground truncate text-emerald-500 font-bold">{selectedInquiry.budgetRange || 'Open'}</p>
+                      <p className="text-foreground truncate text-primary font-bold">{selectedInquiry.budgetRange || 'Open'}</p>
                     </div>
                     <div className="space-y-1 col-span-2">
                       <span className="text-[10px] text-foreground/45 uppercase">Target deadline</span>
@@ -423,7 +423,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
                         {selectedInquiry.features.map(f => (
                           <span 
                             key={f} 
-                            className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 border border-emerald-500/15 rounded text-[10px] font-bold"
+                            className="px-2 py-0.5 bg-primary/10 text-primary border border-primary/15 rounded text-[10px] font-bold"
                           >
                             {f}
                           </span>
@@ -468,7 +468,7 @@ export default function AdminDashboardClient({ session }: { session: any }) {
                     <select
                       value={selectedInquiry.status}
                       onChange={(e) => handleStatusUpdate(selectedInquiry.id, e.target.value as Inquiry['status'])}
-                      className="w-full px-3 py-2 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground cursor-pointer"
+                      className="w-full px-3 py-2 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground cursor-pointer"
                     >
                       <option value="New">New</option>
                       <option value="In Discussion">In Discussion</option>

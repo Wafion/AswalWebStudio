@@ -6,22 +6,17 @@
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 
-  /* Custom Agency Brand Colors */
-  --color-navy-50: #f4f6fb;
-  --color-navy-100: #e8ecf6;
-  --color-navy-200: #cad7ec;
-  --color-navy-300: #9cb4de;
-  --color-navy-400: #688bcb;
-  --color-navy-500: #4667b3;
-  --color-navy-600: #364f94;
-  --color-navy-700: #2c3f78;
-  --color-navy-800: #1b2649;
-  --color-navy-900: #17203b;
-  --color-navy-950: #0a0f1d;
-
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-400: #34d399;
+  /* Custom Agency Brand Color Tokens */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -31,12 +26,26 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary: #4f46e5;
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
   --border-color: #e2e8f0;
-  --card-bg: #f8fafc;
-  --card-border: #e2e8f0;
-  --accent-color: #059669;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Mappings to keep existing next layouts functional */
+  --foreground: var(--text-primary);
+  --card-bg: var(--surface);
+  --card-border: var(--border-color);
+  --accent-color: var(--primary);
 
   --scrollbar-thumb: #cbd5e1;
   --scrollbar-track: transparent;
@@ -46,19 +55,33 @@
 }
 
 .dark {
-  --background: #090e1a;
-  --foreground: #f8fafc;
-  --border-color: #1e293b;
-  --card-bg: #0e1726;
-  --card-border: #1b2536;
-  --accent-color: #10b981;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --secondary: #818cf8;
+  --accent: #fb923c;
+  --accent-hover: #f97316;
+  --background: #0b1120;
+  --surface: #111827;
+  --surface-elevated: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --border-color: #334155;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #f87171;
+
+  /* Mappings to keep existing next layouts functional */
+  --foreground: var(--text-primary);
+  --card-bg: var(--surface);
+  --card-border: var(--border-color);
+  --accent-color: var(--primary);
 
   --scrollbar-thumb: #1e293b;
 }
 
 /* Ensure focus management and outlines */
 *:focus-visible {
-  outline: 2px solid var(--accent-color);
+  outline: 2px solid var(--primary);
   outline-offset: 4px;
 }
 
@@ -66,7 +89,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  accent-color: var(--accent-color);
+  accent-color: var(--primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -86,7 +109,7 @@ p {
 
 /* Modern Gradient Text Helper */
 .text-gradient {
-  background: linear-gradient(135deg, #3b82f6, #10b981);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

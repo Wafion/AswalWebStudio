@@ -85,7 +85,7 @@ export default function ServicesPage() {
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-            Bespoke <span className="text-emerald-500">Services</span> We Offer
+            Bespoke <span className="text-primary">Services</span> We Offer
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             From simple landing pages to advanced custom databases, we engineer clean, high-performance web systems tailored to your goals.
@@ -102,14 +102,14 @@ export default function ServicesPage() {
                 className="flex flex-col justify-between p-8 rounded-3xl border border-card-border bg-card shadow-sm hover:shadow-lg transition-all duration-300 relative group"
               >
                 {service.badge && (
-                  <span className="absolute top-6 right-6 px-3 py-1 bg-emerald-500/10 text-emerald-500 text-xs font-bold rounded-full uppercase tracking-wider">
+                  <span className="absolute top-6 right-6 px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
                     {service.badge}
                   </span>
                 )}
                 
                 <div>
                   {/* Icon */}
-                  <div className="inline-flex p-3 rounded-2xl bg-emerald-500/10 text-emerald-500 mb-6 group-hover:scale-110 transition-transform duration-200">
+                  <div className="inline-flex p-3 rounded-2xl bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform duration-200">
                     <IconComponent className="h-6 w-6" />
                   </div>
 
@@ -123,7 +123,7 @@ export default function ServicesPage() {
                   <ul className="space-y-2 mb-8">
                     {service.features.map((feat, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-xs font-medium text-foreground/80">
-                        <CheckCircle2 className="h-4 w-4 text-emerald-500 flex-shrink-0" />
+                        <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
                         {feat}
                       </li>
                     ))}
@@ -133,7 +133,7 @@ export default function ServicesPage() {
                 {/* Request Button */}
                 <Link
                   href={`/contact?type=${encodeURIComponent(service.title)}`}
-                  className="w-full inline-flex items-center justify-center py-3 bg-background hover:bg-emerald-500 hover:text-white text-foreground font-semibold rounded-xl border border-border hover:border-emerald-500 transition-all text-sm group/btn"
+                  className="w-full inline-flex items-center justify-center py-3 bg-background hover:bg-primary hover:text-white text-foreground font-semibold rounded-xl border border-border hover:border-primary transition-all text-sm group/btn"
                 >
                   Request This Service
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />

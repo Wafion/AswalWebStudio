@@ -91,7 +91,7 @@ export default function PricingPage() {
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-            Clear, Honest <span className="text-emerald-500">Pricing Plans</span>
+            Clear, Honest <span className="text-primary">Pricing Plans</span>
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Choose a tier that fits your scale. All projects include responsive coding, SEO best practices, and clean source code.
@@ -107,12 +107,12 @@ export default function PricingPage() {
                 key={index}
                 className={`flex flex-col justify-between p-6 sm:p-8 rounded-3xl border relative transition-all duration-300 ${
                   plan.popular
-                    ? 'border-emerald-500 bg-card shadow-lg shadow-emerald-500/5 z-10'
+                    ? 'border-primary bg-card shadow-lg shadow-primary/5 z-10'
                     : 'border-card-border bg-card shadow-sm hover:shadow-md'
                 }`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-[10px] font-bold uppercase rounded-full tracking-widest shadow-md">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-[10px] font-bold uppercase rounded-full tracking-widest shadow-md">
                     Most Popular
                   </span>
                 )}
@@ -120,7 +120,7 @@ export default function PricingPage() {
                 <div>
                   {/* Card Icon & Header */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-2xl">
+                    <div className="p-3 bg-primary/10 text-primary rounded-2xl">
                       <IconComp className="h-6 w-6" />
                     </div>
                     <span className="font-extrabold text-[11px] text-foreground/50 uppercase tracking-widest">
@@ -148,7 +148,7 @@ export default function PricingPage() {
                   <ul className="space-y-3 mb-8 border-t border-border/40 pt-6">
                     {plan.features.map((feat, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-xs text-foreground/90 leading-tight font-medium">
-                        <Check className="h-4 w-4 text-emerald-500 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-success flex-shrink-0" />
                         {feat}
                       </li>
                     ))}
@@ -160,8 +160,8 @@ export default function PricingPage() {
                   href={`/contact?plan=${plan.name}`}
                   className={`w-full inline-flex items-center justify-center py-3.5 px-4 rounded-xl text-xs font-bold transition-all shadow-md group ${
                     plan.popular
-                      ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20'
-                      : 'bg-background hover:bg-emerald-500 hover:text-white border border-border text-foreground hover:border-emerald-500'
+                      ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20'
+                      : 'bg-background hover:bg-primary hover:text-white border border-border text-foreground hover:border-primary'
                   }`}
                 >
                   {plan.cta}
@@ -174,15 +174,15 @@ export default function PricingPage() {
         </div>
 
         {/* Special Graphic Design Combo Package Callout */}
-        <div className="relative mt-12 p-8 sm:p-12 rounded-3xl border border-emerald-500 bg-card overflow-hidden shadow-xl shadow-emerald-500/5 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="relative mt-12 p-8 sm:p-12 rounded-3xl border border-accent bg-card overflow-hidden shadow-xl shadow-accent/5 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Most popular badge */}
-          <span className="absolute top-4 left-4 sm:left-8 px-3.5 py-1 bg-emerald-500 text-white text-[9px] font-extrabold uppercase rounded-full tracking-widest shadow-sm">
+          <span className="absolute top-4 left-4 sm:left-8 px-3.5 py-1 bg-accent text-white text-[9px] font-extrabold uppercase rounded-full tracking-widest shadow-sm">
             Special Promo Offer
           </span>
 
           <div className="space-y-4 flex-1 mt-4 md:mt-0 text-left">
             <div className="flex items-center gap-3">
-              <span className="p-2.5 bg-emerald-500/10 text-emerald-500 rounded-xl">
+              <span className="p-2.5 bg-accent/10 text-accent rounded-xl">
                 <Sparkles className="h-5 w-5" />
               </span>
               <h3 className="text-xl sm:text-2xl font-extrabold text-foreground">
@@ -194,13 +194,13 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-bold text-foreground/90">
               <div className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-emerald-500" /> Print-Ready Formats (CMYK)
+                <Check className="h-4 w-4 text-success" /> Print-Ready Formats (CMYK)
               </div>
               <div className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-emerald-500" /> Vector Source Files
+                <Check className="h-4 w-4 text-success" /> Vector Source Files
               </div>
               <div className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-emerald-500" /> Up to 3 Revision Rounds
+                <Check className="h-4 w-4 text-success" /> Up to 3 Revision Rounds
               </div>
             </div>
           </div>
@@ -218,7 +218,7 @@ export default function PricingPage() {
             </span>
             <Link
               href="/contact?plan=Brochure%20%2B%20Business%20Card%20Combo"
-              className="w-full inline-flex items-center justify-center py-2.5 px-4 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-600 text-white transition-all shadow-md shadow-emerald-500/15"
+              className="w-full inline-flex items-center justify-center py-2.5 px-4 rounded-xl text-xs font-bold bg-accent hover:bg-accent-hover text-white transition-all shadow-md shadow-accent/15"
             >
               Get Combo Offer
               <ArrowRight className="ml-1.5 h-3.5 w-3.5 animate-pulse" />
@@ -233,11 +233,11 @@ export default function PricingPage() {
             We accept UPI transfers, bank transfers, and leading digital wallets. Convenient milestone-based payment plans are available for larger applications.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4 text-[10px] font-bold text-foreground/70">
-            <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm text-emerald-500">UPI Transfer</span>
+            <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm text-primary">UPI Transfer</span>
             <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm text-blue-500">Google Pay</span>
             <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm text-indigo-500 font-semibold">PhonePe</span>
             <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm text-sky-500">Paytm</span>
-            <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm text-emerald-600">Razorpay</span>
+            <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm text-primary font-semibold">Razorpay</span>
             <span className="px-3.5 py-2 bg-background border border-border rounded-xl shadow-sm">IMPS / NEFT / RTGS</span>
           </div>
         </div>
@@ -246,7 +246,7 @@ export default function PricingPage() {
         <div className="space-y-8">
           <div className="text-center">
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
-              Compare <span className="text-emerald-500">Plan Features</span>
+              Compare <span className="text-primary">Plan Features</span>
             </h2>
             <p className="text-sm text-foreground/75 mt-2">
               Compare design limits, database integration, admin backends, and SLAs across tiers.
@@ -259,7 +259,7 @@ export default function PricingPage() {
                 <tr className="border-b border-border bg-card/60 text-xs">
                   <th className="p-5 font-bold text-foreground">Plan Feature</th>
                   <th className="p-5 font-bold text-foreground text-center">Starter</th>
-                  <th className="p-5 font-bold text-foreground text-center text-emerald-500">Professional</th>
+                  <th className="p-5 font-bold text-foreground text-center text-primary">Professional</th>
                   <th className="p-5 font-bold text-foreground text-center">Business</th>
                   <th className="p-5 font-bold text-foreground text-center">Custom App</th>
                 </tr>
@@ -272,16 +272,16 @@ export default function PricingPage() {
                     {/* Starter value */}
                     <td className="p-5 text-center text-foreground/80 font-medium">
                       {typeof row.starter === 'boolean' ? (
-                        row.starter ? <Check className="h-4.5 w-4.5 text-emerald-500 mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
+                        row.starter ? <Check className="h-4.5 w-4.5 text-success mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
                       ) : (
                         row.starter
                       )}
                     </td>
 
                     {/* Pro value */}
-                    <td className="p-5 text-center font-bold text-emerald-500">
+                    <td className="p-5 text-center font-bold text-primary">
                       {typeof row.pro === 'boolean' ? (
-                        row.pro ? <Check className="h-4.5 w-4.5 text-emerald-500 mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
+                        row.pro ? <Check className="h-4.5 w-4.5 text-success mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
                       ) : (
                         row.pro
                       )}
@@ -290,7 +290,7 @@ export default function PricingPage() {
                     {/* Business value */}
                     <td className="p-5 text-center text-foreground/80 font-medium">
                       {typeof row.business === 'boolean' ? (
-                        row.business ? <Check className="h-4.5 w-4.5 text-emerald-500 mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
+                        row.business ? <Check className="h-4.5 w-4.5 text-success mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
                       ) : (
                         row.business
                       )}
@@ -299,7 +299,7 @@ export default function PricingPage() {
                     {/* Custom App value */}
                     <td className="p-5 text-center text-foreground/80 font-medium">
                       {typeof (row as any).custom === 'boolean' ? (
-                        (row as any).custom ? <Check className="h-4.5 w-4.5 text-emerald-500 mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
+                        (row as any).custom ? <Check className="h-4.5 w-4.5 text-success mx-auto" /> : <X className="h-4.5 w-4.5 text-foreground/20 mx-auto" />
                       ) : (
                         (row as any).custom
                       )}

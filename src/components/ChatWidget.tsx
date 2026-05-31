@@ -43,10 +43,10 @@ export default function ChatWidget() {
             className="w-80 sm:w-96 rounded-2xl shadow-2xl glass-panel overflow-hidden border border-border mb-4 flex flex-col"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 px-4 py-4 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-primary to-secondary px-4 py-4 text-white flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="relative">
-                  <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-emerald-300 ring-2 ring-emerald-500 animate-pulse" />
+                  <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-success ring-2 ring-primary animate-pulse" />
                   <div className="relative h-10 w-10 overflow-hidden rounded-full bg-white border border-slate-200 flex items-center justify-center p-0.5">
                     <Image
                       src="/logo.png"
@@ -83,10 +83,10 @@ export default function ChatWidget() {
                 <div className="bg-card px-3 py-2.5 rounded-2xl text-sm border border-border text-foreground max-w-[85%] rounded-tl-none flex flex-col space-y-2">
                   <span>🚀 Looking for a quote? You can start by typing a quick brief of your project below:</span>
                   <a
-                    href="https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20a%20website%20quote%20from%20AswalWebStudio."
+                    href="https://wa.me/917304610459?text=Hi!%20I'm%20interested%20in%20a%20website%20quote%20from%20Aswal%20Web%20Studio."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center py-1.5 px-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs rounded-lg transition-colors text-center shadow-sm"
+                    className="inline-flex items-center justify-center py-1.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-lg transition-colors text-center shadow-sm"
                   >
                     Chat on WhatsApp
                   </a>
@@ -101,11 +101,11 @@ export default function ChatWidget() {
                 placeholder="Type your brief & get a quote..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="flex-1 text-sm bg-background border border-border px-3 py-2 rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                className="flex-1 text-sm bg-background border border-border px-3 py-2 rounded-xl focus:outline-none focus:border-primary text-foreground"
               />
               <button
                 type="submit"
-                className="p-2 bg-emerald-500 text-white rounded-xl hover:bg-emerald-600 transition-colors cursor-pointer"
+                className="p-2 bg-primary text-white rounded-xl hover:bg-primary-hover transition-colors cursor-pointer"
               >
                 <Send className="h-4 w-4" />
               </button>
@@ -129,7 +129,7 @@ export default function ChatWidget() {
             >
               <X className="h-3 w-3" />
             </button>
-            <div className="bg-emerald-500 text-white rounded-full p-2 mt-0.5 shadow-md shadow-emerald-500/20">
+            <div className="bg-primary text-white rounded-full p-2 mt-0.5 shadow-md shadow-primary/20">
               <Award className="h-4 w-4" />
             </div>
             <div>
@@ -142,7 +142,7 @@ export default function ChatWidget() {
                   setIsOpen(true);
                   setShowNotification(false);
                 }}
-                className="text-xs text-emerald-500 font-bold hover:underline mt-1.5 block cursor-pointer"
+                className="text-xs text-primary font-bold hover:underline mt-1.5 block cursor-pointer"
               >
                 Let's talk
               </button>
@@ -160,14 +160,14 @@ export default function ChatWidget() {
           setIsOpen(!isOpen);
           setShowNotification(false);
         }}
-        className="h-14 w-14 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xl shadow-emerald-500/20 cursor-pointer relative hover:bg-emerald-600 transition-colors"
+        className="h-14 w-14 rounded-full bg-primary text-white flex items-center justify-center shadow-xl shadow-primary/20 cursor-pointer relative hover:bg-primary-hover transition-colors"
         aria-label="Toggle Live Chat"
       >
         {isOpen ? <X className="h-6 w-6" /> : <MessageSquare className="h-6 w-6" />}
         {!isOpen && showNotification && (
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border border-white text-[9px] font-bold text-white items-center justify-center">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/40 opacity-75" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-primary border border-white text-[9px] font-bold text-white items-center justify-center">
               1
             </span>
           </span>

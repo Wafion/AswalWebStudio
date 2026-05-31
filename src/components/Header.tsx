@@ -44,7 +44,7 @@ export default function Header() {
             />
           </div>
           <span className="font-bold text-xl tracking-tight text-foreground">
-            Aswal<span className="text-emerald-500">WebStudio</span>
+            Aswal<span className="text-primary">WebStudio</span>
           </span>
         </Link>
 
@@ -56,15 +56,15 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-xs lg:text-sm font-medium transition-colors duration-200 py-1 hover:text-emerald-500 ${
-                  isActive ? 'text-emerald-500 font-semibold' : 'text-foreground/80'
+                className={`relative text-xs lg:text-sm font-medium transition-colors duration-200 py-1 hover:text-primary ${
+                  isActive ? 'text-primary font-semibold' : 'text-foreground/80'
                 }`}
               >
                 {link.label}
                 {isActive && (
                   <motion.span
                      layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-0 h-0.5 w-full bg-emerald-500 rounded-full"
+                    className="absolute bottom-0 left-0 h-0.5 w-full bg-primary"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -121,7 +121,7 @@ export default function Header() {
           {/* Contact Button */}
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-2.5 py-1.5 lg:px-4 lg:py-2 text-xs lg:text-sm font-semibold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/15 hover:shadow-emerald-500/25 group"
+            className="inline-flex items-center justify-center px-2.5 py-1.5 lg:px-4 lg:py-2 text-xs lg:text-sm font-semibold text-white bg-accent hover:bg-accent-hover rounded-xl transition-all duration-200 shadow-lg shadow-accent/15 hover:shadow-accent/25 group"
           >
             Contact Us
             <ArrowRight className="ml-1.5 h-3.5 w-3.5 lg:h-4 lg:w-4 group-hover:translate-x-0.5 transition-transform" />
@@ -189,8 +189,8 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                      isActive ? 'bg-emerald-500/10 text-emerald-500' : 'text-foreground/80 hover:bg-card hover:text-foreground'
+                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                      isActive ? 'bg-primary/10 text-primary' : 'text-foreground/80 hover:bg-card hover:text-foreground'
                     }`}
                   >
                     {link.label}
@@ -212,7 +212,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex w-full items-center justify-center px-4 py-3 text-base font-semibold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl transition-all shadow-md shadow-emerald-500/15"
+                  className="flex w-full items-center justify-center px-4 py-3 text-base font-semibold text-white bg-accent hover:bg-accent-hover rounded-xl transition-all shadow-md shadow-accent/15"
                 >
                   Contact Us
                   <ArrowRight className="ml-2 h-4 w-4" />

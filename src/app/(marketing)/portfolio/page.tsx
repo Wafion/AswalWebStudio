@@ -80,7 +80,7 @@ export default function PortfolioPage() {
         {/* Header */}
         <div className="text-center space-y-4 mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-            Our Featured <span className="text-emerald-500">Portfolio</span>
+            Our Featured <span className="text-primary">Portfolio</span>
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Explore a curated selection of our premium custom designs, fast eCommerce portals, and complex SaaS applications.
@@ -95,7 +95,7 @@ export default function PortfolioPage() {
               onClick={() => setSelectedCategory(category)}
               className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
                 selectedCategory === category
-                  ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/15'
+                  ? 'bg-primary text-white shadow-md shadow-primary/15'
                   : 'bg-card border border-border text-foreground/80 hover:text-foreground hover:bg-card/85'
               }`}
             >
@@ -134,7 +134,7 @@ export default function PortfolioPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <a
                       href={project.demoUrl}
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 text-white text-xs font-bold rounded-lg shadow"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg shadow hover:bg-primary-hover transition-colors"
                     >
                       <ExternalLink className="h-3.5 w-3.5" /> Launch Live Demo
                     </a>
@@ -144,12 +144,12 @@ export default function PortfolioPage() {
                 {/* Content block */}
                 <div className="p-8 flex-1 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-2 text-emerald-500 font-bold text-xs uppercase tracking-wider">
+                    <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
                       <Tag className="h-3.5 w-3.5" />
                       {project.category}
                     </div>
                     
-                    <h3 className="font-extrabold text-2xl text-foreground group-hover:text-emerald-500 transition-colors">
+                    <h3 className="font-extrabold text-2xl text-foreground group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
                     
@@ -173,11 +173,11 @@ export default function PortfolioPage() {
                     
                     <div className="pt-4 border-t border-border/50 flex items-center justify-between">
                       <span className="flex items-center gap-1.5 text-xs text-foreground/50 font-medium">
-                        <ShieldCheck className="h-4 w-4 text-emerald-500" /> Fully Responsive
+                        <ShieldCheck className="h-4 w-4 text-success" /> Fully Responsive
                       </span>
                       <a
                         href={project.demoUrl}
-                        className="text-sm font-bold text-emerald-500 hover:text-emerald-600 flex items-center gap-1 group/link"
+                        className="text-sm font-bold text-primary hover:text-primary-hover flex items-center gap-1 group/link"
                       >
                         Live Demo
                         <ExternalLink className="h-4 w-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

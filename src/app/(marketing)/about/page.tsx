@@ -50,7 +50,7 @@ export default function AboutPage() {
         {/* Intro Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold">
               <Users className="h-3.5 w-3.5" /> Our Story
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight leading-[1.1]">
@@ -65,7 +65,7 @@ export default function AboutPage() {
           </div>
 
           <div className="p-8 sm:p-12 rounded-3xl border border-card-border bg-card shadow-sm space-y-6 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
             <h3 className="text-xl font-bold text-foreground">Our Core Promise</h3>
             <div className="space-y-4">
               {[
@@ -75,7 +75,7 @@ export default function AboutPage() {
                 'Search engine optimized (SEO) metadata ready out-of-the-box.',
               ].map((promise, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <p className="text-sm font-medium text-foreground/80">{promise}</p>
                 </div>
               ))}
@@ -87,7 +87,7 @@ export default function AboutPage() {
         <div className="mb-24">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              Our Core <span className="text-emerald-500">Values</span>
+              Our Core <span className="text-primary">Values</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               Our culture is built around absolute reliability, clean engineering, and premium craftsmanship.
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 key={idx}
                 className="p-8 rounded-3xl border border-card-border bg-card flex flex-col items-start space-y-4 hover:shadow-md transition-shadow"
               >
-                <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-2xl">
+                <div className="p-3 bg-primary/10 text-primary rounded-2xl">
                   <val.icon className="h-6 w-6" />
                 </div>
                 <h3 className="font-bold text-lg text-foreground">{val.title}</h3>
@@ -114,7 +114,7 @@ export default function AboutPage() {
         <div>
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              Meet Our <span className="text-emerald-500">Experts</span>
+              Meet Our <span className="text-primary">Experts</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               The designers, coders, and search engine strategists driving success at AswalWebStudio.
@@ -125,9 +125,9 @@ export default function AboutPage() {
             {TEAM.map((member, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between p-8 rounded-3xl border border-card-border bg-card hover:border-emerald-500/30 transition-all duration-300 relative overflow-hidden"
+                className="flex flex-col justify-between p-8 rounded-3xl border border-card-border bg-card hover:border-primary/30 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="absolute top-6 right-6 px-2.5 py-0.5 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold rounded-md uppercase tracking-wider">
+                <div className="absolute top-6 right-6 px-2.5 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-md uppercase tracking-wider">
                   {member.tag}
                 </div>
                 
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="pt-6 border-t border-border mt-8 flex items-center space-x-2 text-xs text-foreground/50 font-semibold uppercase tracking-wider">
-                  <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                  <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
                   Available for Projects
                 </div>
               </div>

@@ -41,7 +41,7 @@ export default function FaqSection() {
         {/* Title */}
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            Frequently Asked <span className="text-emerald-500">Questions</span>
+            Frequently Asked <span className="text-primary">Questions</span>
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Got questions about working with AswalWebStudio? Here are answers to the most common queries.
@@ -59,15 +59,15 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground hover:text-emerald-500 transition-colors cursor-pointer"
+                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground hover:text-primary transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <HelpCircle className="h-5 w-5 text-emerald-500 flex-shrink-0" />
+                    <HelpCircle className="h-5 w-5 text-primary flex-shrink-0" />
                     {faq.question}
                   </span>
                   <ChevronDown
                     className={`h-5 w-5 text-foreground/50 transition-transform duration-300 ${
-                      isOpen ? 'transform rotate-180 text-emerald-500' : ''
+                      isOpen ? 'transform rotate-180 text-primary' : ''
                     }`}
                   />
                 </button>

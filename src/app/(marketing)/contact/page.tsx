@@ -272,7 +272,7 @@ function RequestForm() {
     <div className="bg-card rounded-3xl border border-card-border p-6 sm:p-10 shadow-xl max-w-4xl mx-auto">
       
       {submitStatus === 'success' && (
-        <div className="mb-8 p-6 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 rounded-2xl flex items-start gap-4">
+        <div className="mb-8 p-6 bg-success/10 border border-success/20 text-success rounded-2xl flex items-start gap-4">
           <CheckCircle className="h-6 w-6 flex-shrink-0 mt-0.5" />
           <div>
             <h4 className="font-extrabold text-lg">Request Submitted Successfully!</h4>
@@ -317,7 +317,7 @@ function RequestForm() {
                   placeholder="e.g. Aman Aswal"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                 />
               </div>
             </div>
@@ -335,7 +335,7 @@ function RequestForm() {
                   placeholder="e.g. contact@company.com"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                 />
               </div>
             </div>
@@ -352,7 +352,7 @@ function RequestForm() {
                   placeholder="e.g. +91 7304610459"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                 />
               </div>
             </div>
@@ -369,7 +369,7 @@ function RequestForm() {
                   placeholder="e.g. Acme Corporation"
                   value={formData.companyName}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                 />
               </div>
             </div>
@@ -392,7 +392,7 @@ function RequestForm() {
                 name="websiteType"
                 value={formData.websiteType}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
               >
                 {WEBSITE_TYPES.map(type => (
                   <option key={type} value={type}>{type}</option>
@@ -408,7 +408,7 @@ function RequestForm() {
                 name="budgetRange"
                 value={formData.budgetRange}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
               >
                 {BUDGET_OPTIONS.map(opt => (
                   <option key={opt} value={opt}>{opt}</option>
@@ -424,7 +424,7 @@ function RequestForm() {
                 name="deadline"
                 value={formData.deadline}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
               >
                 {TIMELINE_OPTIONS.map(opt => (
                   <option key={opt} value={opt}>{opt}</option>
@@ -443,7 +443,7 @@ function RequestForm() {
                     name="pageCount"
                     value={formData.pageCount}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                    className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                   >
                     {PAGES_OPTIONS.map(opt => (
                       <option key={opt} value={opt}>{opt}</option>
@@ -459,7 +459,7 @@ function RequestForm() {
                     name="designStyle"
                     value={formData.designStyle}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                    className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                   >
                     {STYLE_OPTIONS.map(opt => (
                       <option key={opt} value={opt}>{opt}</option>
@@ -489,10 +489,10 @@ function RequestForm() {
                   type="text"
                   name="brandColors"
                   required={isGraphicDesignSelected}
-                  placeholder="e.g. Emerald green (#10B981) and charcoal, gold accents"
+                  placeholder="e.g. Royal Blue (#2563EB) and orange, white accents"
                   value={formData.brandColors}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                 />
               </div>
 
@@ -506,7 +506,7 @@ function RequestForm() {
                   name="logoStatus"
                   value={formData.logoStatus}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                 >
                   <option value="Will Upload Logo">I have a logo (will upload below)</option>
                   <option value="Need Logo Design">I need a new logo designed (₹1,500 add-on)</option>
@@ -527,7 +527,7 @@ function RequestForm() {
                   placeholder="e.g. Modern, minimalist, corporate, dark background, premium feel"
                   value={formData.designPreferences}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground"
+                  className="w-full px-4 py-2.5 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground"
                 />
               </div>
 
@@ -544,7 +544,7 @@ function RequestForm() {
                   placeholder="For Business Card: Name, Title, Email, Phone, Address. For Brochure: Outline of sections, headings, service descriptions, and any copy to include."
                   value={formData.designNotes}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground resize-y"
+                  className="w-full px-4 py-3 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground resize-y"
                 />
               </div>
             </div>
@@ -564,14 +564,14 @@ function RequestForm() {
                     onClick={() => handleFeatureToggle(feature.id)}
                     className={`p-4 rounded-2xl border text-center transition-all cursor-pointer flex flex-col justify-between items-center h-24 ${
                       isChecked
-                        ? 'border-emerald-500 bg-emerald-500/5 text-emerald-500 shadow-sm'
+                        ? 'border-primary bg-primary/5 text-primary shadow-sm'
                         : 'border-border bg-background hover:bg-card/80 text-foreground/80'
                     }`}
                   >
                     <span className="text-xs font-bold leading-tight">{feature.label}</span>
                     <div
                       className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                        isChecked ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-border bg-card'
+                        isChecked ? 'bg-primary border-primary text-white' : 'border-border bg-card'
                       }`}
                     >
                       {isChecked && <Check className="h-2.5 w-2.5" />}
@@ -598,7 +598,7 @@ function RequestForm() {
               placeholder="Describe your goals, targets, and any custom integrations needed..."
               value={formData.description}
               onChange={handleChange}
-              className="w-full px-4 py-3 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-emerald-500 text-foreground resize-y"
+              className="w-full px-4 py-3 text-sm bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-foreground resize-y"
             />
           </div>
 
@@ -609,7 +609,7 @@ function RequestForm() {
             <div
               onDragOver={e => e.preventDefault()}
               onDrop={handleFileDrop}
-              className="border-2 border-dashed border-border rounded-2xl p-6 text-center bg-background hover:border-emerald-500 transition-colors duration-200 cursor-pointer relative"
+              className="border-2 border-dashed border-border rounded-2xl p-6 text-center bg-background hover:border-primary transition-colors duration-200 cursor-pointer relative"
             >
               <input
                 type="file"
@@ -619,7 +619,7 @@ function RequestForm() {
               />
               <Upload className="h-8 w-8 text-foreground/30 mx-auto mb-2" />
               <p className="text-sm font-semibold text-foreground">
-                Drag and drop files here, or <span className="text-emerald-500">browse folder</span>
+                Drag and drop files here, or <span className="text-primary">browse folder</span>
               </p>
               <p className="text-xs text-foreground/50 mt-1">Supports PDF, PNG, JPG, DOCX (Max 10MB per file)</p>
             </div>
@@ -634,7 +634,7 @@ function RequestForm() {
                       className="p-3 bg-card border border-border rounded-xl flex items-center justify-between text-xs font-medium text-foreground/95"
                     >
                       <span className="flex items-center gap-2 truncate">
-                        <FileText className="h-4 w-4 text-emerald-500 flex-shrink-0" />
+                        <FileText className="h-4 w-4 text-primary flex-shrink-0" />
                         <span className="truncate">{file.name}</span>
                         <span className="text-foreground/45 flex-shrink-0">({file.size} KB)</span>
                       </span>
@@ -658,7 +658,7 @@ function RequestForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full inline-flex items-center justify-center py-4 px-6 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-2xl shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/35 transition-all text-base disabled:opacity-50 cursor-pointer"
+            className="w-full inline-flex items-center justify-center py-4 px-6 bg-accent hover:bg-accent-hover text-white font-bold rounded-2xl shadow-xl shadow-accent/20 hover:shadow-accent/35 transition-all text-base disabled:opacity-50 cursor-pointer"
           >
             {isSubmitting ? 'Submitting Proposal...' : isGraphicDesignSelected ? 'Request Design Proposal' : 'Request My Website'}
             <ChevronRight className="ml-1 h-5 w-5" />
@@ -678,7 +678,7 @@ export default function ContactPage() {
         {/* Intro */}
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-            Let’s Initiate Your <span className="text-emerald-500">Project Proposal</span>
+            Let’s Initiate Your <span className="text-primary">Project Proposal</span>
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Fill out the form below to share your requirements, or reach out to us directly via phone, email, or Instagram.
@@ -691,7 +691,7 @@ export default function ContactPage() {
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-card border border-card-border p-6 sm:p-8 rounded-3xl shadow-xl space-y-8 relative overflow-hidden">
               {/* Decorative Blur */}
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
               
               <div className="space-y-2">
                 <h3 className="font-extrabold text-2xl text-foreground">Get In Touch</h3>
@@ -705,9 +705,9 @@ export default function ContactPage() {
                 {/* Phone Card */}
                 <a 
                   href="tel:+917304610459"
-                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-emerald-500/5 border border-border hover:border-emerald-500/30 rounded-2xl transition-all group cursor-pointer"
+                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-primary/5 border border-border hover:border-primary/30 rounded-2xl transition-all group cursor-pointer"
                 >
-                  <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                  <div className="p-3 bg-primary/10 text-primary rounded-xl group-hover:scale-105 transition-transform duration-200">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -719,9 +719,9 @@ export default function ContactPage() {
                 {/* Email Card */}
                 <a 
                   href="mailto:aman9lion@gmail.com"
-                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-emerald-500/5 border border-border hover:border-emerald-500/30 rounded-2xl transition-all group cursor-pointer"
+                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-primary/5 border border-border hover:border-primary/30 rounded-2xl transition-all group cursor-pointer"
                 >
-                  <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                  <div className="p-3 bg-primary/10 text-primary rounded-xl group-hover:scale-105 transition-transform duration-200">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -735,9 +735,9 @@ export default function ContactPage() {
                   href="https://www.instagram.com/aswalwebstudio/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-emerald-500/5 border border-border hover:border-emerald-500/30 rounded-2xl transition-all group cursor-pointer"
+                  className="flex items-center gap-4 p-4 bg-background/50 hover:bg-primary/5 border border-border hover:border-primary/30 rounded-2xl transition-all group cursor-pointer"
                 >
-                  <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl group-hover:scale-105 transition-transform duration-200">
+                  <div className="p-3 bg-primary/10 text-primary rounded-xl group-hover:scale-105 transition-transform duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                       <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
@@ -753,8 +753,8 @@ export default function ContactPage() {
               </div>
 
               {/* Quick WhatsApp Support */}
-              <div className="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl space-y-2">
-                <span className="font-bold text-emerald-500 text-[10px] uppercase tracking-wider">Instant Chat Support:</span>
+              <div className="p-4 bg-success/5 border border-success/20 rounded-2xl space-y-2">
+                <span className="font-bold text-success text-[10px] uppercase tracking-wider">Instant Chat Support:</span>
                 <p className="text-[11px] text-foreground/75 leading-relaxed">
                   Connect on WhatsApp for immediate feedback on design scopes and timelines.
                 </p>
