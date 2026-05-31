@@ -6,19 +6,17 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 export default function CustomCursor() {
   const [mounted, setMounted] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const [cursorText, setCursorText] = useState('');
   const [isMobile, setIsMobile] = useState(true);
-  const [clicked, setClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   // Mouse coordinates motion values
-  const mouseX = useMotionValue(-100);
-  const mouseY = useMotionValue(-100);
+  const mouseX = useMotionValue(-500);
+  const mouseY = useMotionValue(-500);
 
-  // Physics config for spring-lag effect (gives smooth physical momentum)
-  const springConfig = { damping: 32, stiffness: 280, mass: 0.45 };
-  const ringX = useSpring(mouseX, springConfig);
-  const ringY = useSpring(mouseY, springConfig);
+  // Smooth springs for a luxury, fluid lag physics (feels responsive yet soft)
+  const springConfig = { damping: 45, stiffness: 180, mass: 0.9 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     setMounted(true);
@@ -35,7 +33,6 @@ export default function CustomCursor() {
     window.addEventListener('resize', checkDevice);
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Only set visible once the mouse actually moves inside the viewport
       if (!isVisible) setIsVisible(true);
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -49,39 +46,23 @@ export default function CustomCursor() {
       setIsVisible(true);
     };
 
-    const handleMouseDown = () => setClicked(true);
-    const handleMouseUp = () => setClicked(false);
-
     window.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
 
-    // Scan the DOM for hover items
     const setupListeners = () => {
       const elements = document.querySelectorAll(
         'a, button, input, select, textarea, [role="button"], .interactive-card, Link'
       );
 
       elements.forEach((el) => {
-        el.addEventListener('mouseenter', () => {
-          setHovered(true);
-          const txt = el.getAttribute('data-cursor-text');
-          if (txt) {
-            setCursorText(txt);
-          }
-        });
-        el.addEventListener('mouseleave', () => {
-          setHovered(false);
-          setCursorText('');
-        });
+        el.addEventListener('mouseenter', () => setHovered(true));
+        el.addEventListener('mouseleave', () => setHovered(false));
       });
     };
 
     setupListeners();
 
-    // Use MutationObserver to wire up dynamically injected elements
     const observer = new MutationObserver(setupListeners);
     observer.observe(document.body, { childList: true, subtree: true });
 
@@ -90,8 +71,6 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
       observer.disconnect();
     };
   }, [mouseX, mouseY, isVisible]);
@@ -99,41 +78,21 @@ export default function CustomCursor() {
   if (!mounted || isMobile || !isVisible) return null;
 
   return (
-    <>
-      {/* Outer physics-based lagging ring */}
-      <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] flex items-center justify-center mix-blend-difference border"
-        style={{
-          x: ringX,
-          y: ringY,
-          translateX: '-50%',
-          translateY: '-50%',
-          width: hovered ? (cursorText ? 80 : 64) : 32,
-          height: hovered ? (cursorText ? 80 : 64) : 32,
-          backgroundColor: hovered ? 'rgba(255, 255, 255, 0.08)' : 'rgba(255, 255, 255, 0)',
-          borderColor: hovered ? 'rgba(255, 140, 0, 0.8)' : 'rgba(255, 255, 255, 0.65)',
-          transition: 'width 0.25s ease-out, height 0.25s ease-out, background-color 0.25s ease-out, border-color 0.25s ease-out',
-        }}
-      >
-        {cursorText && (
-          <span className="text-[9px] font-black tracking-widest text-white uppercase text-center select-none animate-pulse px-2">
-            {cursorText}
-          </span>
-        )}
-      </motion.div>
-
-      {/* Inner direct dot */}
-      <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-white pointer-events-none z-[9999] mix-blend-difference"
-        style={{
-          x: mouseX,
-          y: mouseY,
-          translateX: '-50%',
-          translateY: '-50%',
-          scale: clicked ? 0.6 : hovered ? 1.5 : 1,
-          transition: 'scale 0.15s ease-out',
-        }}
-      />
-    </>
+    <motion.div
+      className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] blur-[80px]"
+      style={{
+        x: cursorX,
+        y: cursorY,
+        translateX: '-50%',
+        translateY: '-50%',
+        width: hovered ? 350 : 220,
+        height: hovered ? 350 : 220,
+        // High-end ambient light glow that reacts on interactive elements
+        background: hovered
+          ? 'radial-gradient(circle, rgba(249, 115, 22, 0.22) 0%, rgba(79, 70, 229, 0.1) 40%, rgba(37, 99, 235, 0.05) 60%, rgba(0,0,0,0) 80%)' // Rich Orange/Indigo active light
+          : 'radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(79, 70, 229, 0.08) 45%, rgba(0,0,0,0) 75%)', // Smooth Blue/Indigo ambient light
+        transition: 'width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+      }}
+    />
   );
 }
