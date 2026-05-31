@@ -128,6 +128,7 @@ export default function PortfolioPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35 }}
                 key={project.title}
+                data-cursor-text="view"
                 className="flex flex-col rounded-3xl border border-card-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group"
               >
                 

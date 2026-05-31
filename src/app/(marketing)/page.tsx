@@ -134,6 +134,7 @@ export default function HomePage() {
             >
               <Link
                 href="/contact"
+                data-cursor-text="quote"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-accent hover:bg-accent-hover rounded-2xl transition-all shadow-xl shadow-accent/20 hover:shadow-accent/35 hover:-translate-y-0.5 group"
               >
                 Request a Website
@@ -141,6 +142,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/portfolio"
+                data-cursor-text="explore"
                 className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-foreground bg-card hover:bg-card/80 border border-border rounded-2xl transition-all hover:-translate-y-0.5"
               >
                 View Portfolio
