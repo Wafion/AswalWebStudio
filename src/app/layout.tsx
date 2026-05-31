@@ -71,7 +71,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-200">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-200">
         <div className="bg-gradient-to-r from-primary via-secondary to-accent text-white text-xs font-semibold py-2.5 px-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-center relative z-40 shadow-md">
           <span>
             🚀 <strong>Launch your business online and offline!</strong> Website Starting at ₹3,000 | Brochure Design ₹3,000 | Business Card Design ₹1,500 | Combo Offer ₹3,500

@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import Testimonials from '@/components/Testimonials';
 import FaqSection from '@/components/FaqSection';
+import Typewriter from '@/components/Typewriter';
 
 const STATS = [
   { value: '99.9%', label: 'Uptime SLA' },
@@ -111,7 +112,7 @@ export default function HomePage() {
               className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.05]"
             >
               Professional Websites <br />
-              <span className="text-gradient">That Grow Your Business</span>
+              <Typewriter />
             </motion.h1>
 
             {/* Subheading */}
